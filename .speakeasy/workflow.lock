@@ -2,8 +2,8 @@ speakeasyVersion: 1.628.3
 sources:
     petstore-oas:
         sourceNamespace: petstore-oas
-        sourceRevisionDigest: sha256:0d17a4f4e032fe17e3323d4fb3d12035cf61f4796a8137683bed66423593567e
-        sourceBlobDigest: sha256:de2acefc03c0f02e7d091c58eb0ba357e4c0e9fae858eb2d28ffc0f1580d0a3d
+        sourceRevisionDigest: sha256:59d6d036c22d7346ef0c4d5049e217a77b3fefc32fc6bda0934a967420e693ad
+        sourceBlobDigest: sha256:068d3657fa513adc87389664bacac37deb7057278fb5e613a6ec654811ba56c0
         tags:
             - latest
             - 1.0.0
@@ -11,8 +11,8 @@ targets:
     petstore:
         source: petstore-oas
         sourceNamespace: petstore-oas
-        sourceRevisionDigest: sha256:0d17a4f4e032fe17e3323d4fb3d12035cf61f4796a8137683bed66423593567e
-        sourceBlobDigest: sha256:de2acefc03c0f02e7d091c58eb0ba357e4c0e9fae858eb2d28ffc0f1580d0a3d
+        sourceRevisionDigest: sha256:59d6d036c22d7346ef0c4d5049e217a77b3fefc32fc6bda0934a967420e693ad
+        sourceBlobDigest: sha256:068d3657fa513adc87389664bacac37deb7057278fb5e613a6ec654811ba56c0
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

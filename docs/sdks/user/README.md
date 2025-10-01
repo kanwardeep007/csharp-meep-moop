@@ -9,7 +9,6 @@ Operations about user
 
 * [CreateUser](#createuser) - Create user
 * [CreateUsersWithListInput](#createuserswithlistinput) - Creates list of users with given input array
-* [LoginUser](#loginuser) - Logs user into the system
 * [LogoutUser](#logoutuser) - Logs out current logged in user session
 * [GetUserByName](#getuserbyname) - Get user by user name
 * [UpdateUser](#updateuser) - Update user
@@ -107,44 +106,6 @@ var res = await sdk.User.CreateUsersWithListInputAsync(req);
 | Error Type                          | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | meepMoop.Models.Errors.APIException | 4XX, 5XX                            | \*/\*                               |
-
-## LoginUser
-
-Logs user into the system
-
-### Example Usage
-
-<!-- UsageSnippet language="csharp" operationID="loginUser" method="get" path="/user/login" -->
-```csharp
-using meepMoop;
-using meepMoop.Models.Components;
-
-var sdk = new Petstore(apiKey: "<YOUR_API_KEY_HERE>");
-
-var res = await sdk.User.LoginUserAsync();
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                            | Type                                 | Required                             | Description                          |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `Username`                           | *string*                             | :heavy_minus_sign:                   | The user name for login              |
-| `Password`                           | *string*                             | :heavy_minus_sign:                   | The password for login in clear text |
-
-### Response
-
-**[LoginUserResponse](../../Models/Requests/LoginUserResponse.md)**
-
-### Errors
-
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| meepMoop.Models.Errors.ApiErrorInvalidInput | 400                                         | application/json                            |
-| meepMoop.Models.Errors.ApiErrorUnauthorized | 401                                         | application/json                            |
-| meepMoop.Models.Errors.ApiErrorNotFound     | 404                                         | application/json                            |
-| meepMoop.Models.Errors.APIException         | 4XX, 5XX                                    | \*/\*                                       |
 
 ## LogoutUser
 

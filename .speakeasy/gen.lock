@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 188e7d84-b7a3-4f70-909a-c57872d04394
 management:
-  docChecksum: 03e3387365ae18c7ce07d32543a62956
+  docChecksum: 94d18e8061e37524106e93ca382d7a7f
   docVersion: 1.0.0
   speakeasyVersion: 1.628.3
   generationVersion: 2.716.4
-  releaseVersion: 0.0.2
-  configChecksum: 5f8881398127274b9f27ba16a83044b5
+  releaseVersion: 0.0.3
+  configChecksum: d4c49947a8b3eb9e28b41c4c6e5e0ce2
   published: true
 features:
   csharp:
@@ -59,8 +59,6 @@ generatedFiles:
   - docs/Models/Requests/GetPetByIdResponse.md
   - docs/Models/Requests/GetUserByNameRequest.md
   - docs/Models/Requests/GetUserByNameResponse.md
-  - docs/Models/Requests/LoginUserRequest.md
-  - docs/Models/Requests/LoginUserResponse.md
   - docs/Models/Requests/LogoutUserResponse.md
   - docs/Models/Requests/PlaceOrderResponse.md
   - docs/Models/Requests/Status.md
@@ -113,8 +111,6 @@ generatedFiles:
   - src/meepMoop/Models/Requests/GetPetByIdResponse.cs
   - src/meepMoop/Models/Requests/GetUserByNameRequest.cs
   - src/meepMoop/Models/Requests/GetUserByNameResponse.cs
-  - src/meepMoop/Models/Requests/LoginUserRequest.cs
-  - src/meepMoop/Models/Requests/LoginUserResponse.cs
   - src/meepMoop/Models/Requests/LogoutUserResponse.cs
   - src/meepMoop/Models/Requests/PlaceOrderResponse.cs
   - src/meepMoop/Models/Requests/Status.cs

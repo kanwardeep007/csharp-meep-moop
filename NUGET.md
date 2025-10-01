@@ -151,9 +151,9 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`PetstoreException`](./src/meepMoop/Models/Errors/PetstoreException.cs):
-  * [`ApiErrorUnauthorized`](./src/meepMoop/Models/Errors/ApiErrorUnauthorized.cs): Unauthorized error. Status code `401`. Applicable to 12 of 18 methods.*
-  * [`ApiErrorNotFound`](./src/meepMoop/Models/Errors/ApiErrorNotFound.cs): Not Found error. Status code `404`. Applicable to 12 of 18 methods.*
-  * [`ApiErrorInvalidInput`](./src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs): Not Found error. Status code `400`. Applicable to 10 of 18 methods.*
+  * [`ApiErrorUnauthorized`](./src/meepMoop/Models/Errors/ApiErrorUnauthorized.cs): Unauthorized error. Status code `401`. Applicable to 11 of 17 methods.*
+  * [`ApiErrorNotFound`](./src/meepMoop/Models/Errors/ApiErrorNotFound.cs): Not Found error. Status code `404`. Applicable to 11 of 17 methods.*
+  * [`ApiErrorInvalidInput`](./src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs): Not Found error. Status code `400`. Applicable to 9 of 17 methods.*
   * [`ResponseValidationError`](./src/meepMoop/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

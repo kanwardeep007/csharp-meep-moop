@@ -47,11 +47,6 @@ namespace meepMoop
         Task<CreateUsersWithListInputResponse> CreateUsersWithListInputAsync(List<Models.Components.User>? request = null);
 
         /// <summary>
-        /// Logs user into the system
-        /// </summary>
-        Task<LoginUserResponse> LoginUserAsync(string? username = null, string? password = null);
-
-        /// <summary>
         /// Logs out current logged in user session
         /// </summary>
         Task<LogoutUserResponse> LogoutUserAsync();
@@ -87,7 +82,7 @@ namespace meepMoop
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.2";
+        private const string _sdkVersion = "0.0.3";
         private const string _sdkGenVersion = "2.716.4";
         private const string _openapiDocVersion = "1.0.0";
 
@@ -274,179 +269,6 @@ namespace meepMoop
                     };
                     response.User = obj;
                     return response;
-                }
-
-                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
-            {
-                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
-            {
-                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-
-            throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-        }
-
-        public async Task<LoginUserResponse> LoginUserAsync(string? username = null, string? password = null)
-        {
-            var request = new LoginUserRequest()
-            {
-                Username = username,
-                Password = password,
-            };
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/user/login", request);
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
-
-            if (SDKConfiguration.SecuritySource != null)
-            {
-                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
-            }
-
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "loginUser", new List<string> {  }, SDKConfiguration.SecuritySource);
-
-            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
-
-            HttpResponseMessage httpResponse;
-            try
-            {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
-                int _statusCode = (int)httpResponse.StatusCode;
-
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
-                {
-                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
-                    if (_httpResponse != null)
-                    {
-                        httpResponse = _httpResponse;
-                    }
-                }
-            }
-            catch (Exception error)
-            {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
-                if (_httpResponse != null)
-                {
-                    httpResponse = _httpResponse;
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    string obj;
-                    try
-                    {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<string>(httpResponseBody, NullValueHandling.Include);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new ResponseValidationException("Failed to deserialize response body into string.", httpRequest, httpResponse, httpResponseBody, ex);
-                    }
-
-                    var response = new LoginUserResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
-                            Response = httpResponse,
-                            Request = httpRequest
-                        }
-                    };
-                    response.String = obj;
-                    return response;
-                }
-
-                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-            else if(responseStatusCode == 400)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    ApiErrorInvalidInputPayload payload;
-                    try
-                    {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<ApiErrorInvalidInputPayload>(httpResponseBody, NullValueHandling.Include);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new ResponseValidationException("Failed to deserialize response body into ApiErrorInvalidInputPayload.", httpRequest, httpResponse, httpResponseBody, ex);
-                    }
-
-                    payload.HttpMeta = new Models.Components.HTTPMetadata()
-                    {
-                        Response = httpResponse,
-                        Request = httpRequest
-                    };
-
-                    throw new ApiErrorInvalidInput(payload, httpRequest, httpResponse, httpResponseBody);
-                }
-
-                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-            else if(responseStatusCode == 401)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    ApiErrorUnauthorizedPayload payload;
-                    try
-                    {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<ApiErrorUnauthorizedPayload>(httpResponseBody, NullValueHandling.Include);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new ResponseValidationException("Failed to deserialize response body into ApiErrorUnauthorizedPayload.", httpRequest, httpResponse, httpResponseBody, ex);
-                    }
-
-                    payload.HttpMeta = new Models.Components.HTTPMetadata()
-                    {
-                        Response = httpResponse,
-                        Request = httpRequest
-                    };
-
-                    throw new ApiErrorUnauthorized(payload, httpRequest, httpResponse, httpResponseBody);
-                }
-
-                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-            else if(responseStatusCode == 404)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    ApiErrorNotFoundPayload payload;
-                    try
-                    {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<ApiErrorNotFoundPayload>(httpResponseBody, NullValueHandling.Include);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new ResponseValidationException("Failed to deserialize response body into ApiErrorNotFoundPayload.", httpRequest, httpResponse, httpResponseBody, ex);
-                    }
-
-                    payload.HttpMeta = new Models.Components.HTTPMetadata()
-                    {
-                        Response = httpResponse,
-                        Request = httpRequest
-                    };
-
-                    throw new ApiErrorNotFound(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
