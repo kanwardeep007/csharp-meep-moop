@@ -11,6 +11,9 @@ targets:
     petstore:
         target: csharp
         source: petstore-oas
+        publish:
+            nuget:
+                apiKey: $nuget_api_key
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/gdmtesting/petstore/petstore-oas-csharp-code-samples
