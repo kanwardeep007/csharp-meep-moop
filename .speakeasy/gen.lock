@@ -1,0 +1,339 @@
+lockVersion: 2.0.0
+id: 188e7d84-b7a3-4f70-909a-c57872d04394
+management:
+  docChecksum: 03e3387365ae18c7ce07d32543a62956
+  docVersion: 1.0.0
+  speakeasyVersion: 1.628.3
+  generationVersion: 2.716.4
+  releaseVersion: 0.0.1
+  configChecksum: fa8f38dd78a2fec638118a749f1bb5c0
+features:
+  csharp:
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.0.1
+    core: 3.12.4
+    flattening: 2.81.3
+    globalSecurity: 2.83.8
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
+    intellisenseMarkdownSupport: 0.1.0
+    methodArguments: 0.2.1
+    responseFormat: 0.0.4
+    sdkHooks: 0.2.0
+generatedFiles:
+  - .gitattributes
+  - USAGE.md
+  - docs/Models/Components/ApiResponse.md
+  - docs/Models/Components/Category.md
+  - docs/Models/Components/HTTPMetadata.md
+  - docs/Models/Components/Order.md
+  - docs/Models/Components/OrderStatus.md
+  - docs/Models/Components/Pet.md
+  - docs/Models/Components/PetStatus.md
+  - docs/Models/Components/Security.md
+  - docs/Models/Components/Tag.md
+  - docs/Models/Components/User.md
+  - docs/Models/Errors/ApiErrorInvalidInput.md
+  - docs/Models/Errors/ApiErrorNotFound.md
+  - docs/Models/Errors/ApiErrorUnauthorized.md
+  - docs/Models/Requests/AddPetResponse.md
+  - docs/Models/Requests/CreateUserResponse.md
+  - docs/Models/Requests/CreateUsersWithListInputResponse.md
+  - docs/Models/Requests/DeleteOrderRequest.md
+  - docs/Models/Requests/DeleteOrderResponse.md
+  - docs/Models/Requests/DeletePetRequest.md
+  - docs/Models/Requests/DeletePetResponse.md
+  - docs/Models/Requests/DeleteUserRequest.md
+  - docs/Models/Requests/DeleteUserResponse.md
+  - docs/Models/Requests/FindPetsByStatusRequest.md
+  - docs/Models/Requests/FindPetsByStatusResponse.md
+  - docs/Models/Requests/FindPetsByTagsRequest.md
+  - docs/Models/Requests/FindPetsByTagsResponse.md
+  - docs/Models/Requests/GetInventoryResponse.md
+  - docs/Models/Requests/GetOrderByIdRequest.md
+  - docs/Models/Requests/GetOrderByIdResponse.md
+  - docs/Models/Requests/GetPetByIdRequest.md
+  - docs/Models/Requests/GetPetByIdResponse.md
+  - docs/Models/Requests/GetUserByNameRequest.md
+  - docs/Models/Requests/GetUserByNameResponse.md
+  - docs/Models/Requests/LoginUserRequest.md
+  - docs/Models/Requests/LoginUserResponse.md
+  - docs/Models/Requests/LogoutUserResponse.md
+  - docs/Models/Requests/PlaceOrderResponse.md
+  - docs/Models/Requests/Status.md
+  - docs/Models/Requests/UpdatePetResponse.md
+  - docs/Models/Requests/UpdateUserRequest.md
+  - docs/Models/Requests/UpdateUserResponse.md
+  - docs/Models/Requests/UploadFileRequest.md
+  - docs/Models/Requests/UploadFileResponse.md
+  - docs/sdks/pet/README.md
+  - docs/sdks/petstore/README.md
+  - docs/sdks/store/README.md
+  - docs/sdks/user/README.md
+  - global.json
+  - meepMoop.sln
+  - src/meepMoop/Hooks/HookTypes.cs
+  - src/meepMoop/Hooks/SDKHooks.cs
+  - src/meepMoop/Models/Components/ApiResponse.cs
+  - src/meepMoop/Models/Components/Category.cs
+  - src/meepMoop/Models/Components/HTTPMetadata.cs
+  - src/meepMoop/Models/Components/Order.cs
+  - src/meepMoop/Models/Components/OrderStatus.cs
+  - src/meepMoop/Models/Components/Pet.cs
+  - src/meepMoop/Models/Components/PetStatus.cs
+  - src/meepMoop/Models/Components/Security.cs
+  - src/meepMoop/Models/Components/Tag.cs
+  - src/meepMoop/Models/Components/User.cs
+  - src/meepMoop/Models/Errors/APIException.cs
+  - src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs
+  - src/meepMoop/Models/Errors/ApiErrorNotFound.cs
+  - src/meepMoop/Models/Errors/ApiErrorUnauthorized.cs
+  - src/meepMoop/Models/Errors/PetstoreException.cs
+  - src/meepMoop/Models/Errors/ResponseValidationException.cs
+  - src/meepMoop/Models/Requests/AddPetResponse.cs
+  - src/meepMoop/Models/Requests/CreateUserResponse.cs
+  - src/meepMoop/Models/Requests/CreateUsersWithListInputResponse.cs
+  - src/meepMoop/Models/Requests/DeleteOrderRequest.cs
+  - src/meepMoop/Models/Requests/DeleteOrderResponse.cs
+  - src/meepMoop/Models/Requests/DeletePetRequest.cs
+  - src/meepMoop/Models/Requests/DeletePetResponse.cs
+  - src/meepMoop/Models/Requests/DeleteUserRequest.cs
+  - src/meepMoop/Models/Requests/DeleteUserResponse.cs
+  - src/meepMoop/Models/Requests/FindPetsByStatusRequest.cs
+  - src/meepMoop/Models/Requests/FindPetsByStatusResponse.cs
+  - src/meepMoop/Models/Requests/FindPetsByTagsRequest.cs
+  - src/meepMoop/Models/Requests/FindPetsByTagsResponse.cs
+  - src/meepMoop/Models/Requests/GetInventoryResponse.cs
+  - src/meepMoop/Models/Requests/GetOrderByIdRequest.cs
+  - src/meepMoop/Models/Requests/GetOrderByIdResponse.cs
+  - src/meepMoop/Models/Requests/GetPetByIdRequest.cs
+  - src/meepMoop/Models/Requests/GetPetByIdResponse.cs
+  - src/meepMoop/Models/Requests/GetUserByNameRequest.cs
+  - src/meepMoop/Models/Requests/GetUserByNameResponse.cs
+  - src/meepMoop/Models/Requests/LoginUserRequest.cs
+  - src/meepMoop/Models/Requests/LoginUserResponse.cs
+  - src/meepMoop/Models/Requests/LogoutUserResponse.cs
+  - src/meepMoop/Models/Requests/PlaceOrderResponse.cs
+  - src/meepMoop/Models/Requests/Status.cs
+  - src/meepMoop/Models/Requests/UpdatePetResponse.cs
+  - src/meepMoop/Models/Requests/UpdateUserRequest.cs
+  - src/meepMoop/Models/Requests/UpdateUserResponse.cs
+  - src/meepMoop/Models/Requests/UploadFileRequest.cs
+  - src/meepMoop/Models/Requests/UploadFileResponse.cs
+  - src/meepMoop/Pet.cs
+  - src/meepMoop/Petstore.cs
+  - src/meepMoop/SDKConfig.cs
+  - src/meepMoop/Store.cs
+  - src/meepMoop/User.cs
+  - src/meepMoop/Utils/AnyDeserializer.cs
+  - src/meepMoop/Utils/BigIntStrConverter.cs
+  - src/meepMoop/Utils/DecimalStrConverter.cs
+  - src/meepMoop/Utils/EnumConverter.cs
+  - src/meepMoop/Utils/FlexibleObjectDeserializer.cs
+  - src/meepMoop/Utils/HeaderSerializer.cs
+  - src/meepMoop/Utils/IsoDateTimeSerializer.cs
+  - src/meepMoop/Utils/OpenEnumConverter.cs
+  - src/meepMoop/Utils/PetstoreHttpClient.cs
+  - src/meepMoop/Utils/RequestBodySerializer.cs
+  - src/meepMoop/Utils/ResponseBodyDeserializer.cs
+  - src/meepMoop/Utils/Retries/BackoffStrategy.cs
+  - src/meepMoop/Utils/Retries/Retries.cs
+  - src/meepMoop/Utils/Retries/RetryConfig.cs
+  - src/meepMoop/Utils/SecurityMetadata.cs
+  - src/meepMoop/Utils/SpeakeasyMetadata.cs
+  - src/meepMoop/Utils/URLBuilder.cs
+  - src/meepMoop/Utils/Utilities.cs
+  - src/meepMoop/meepMoop.csproj
+examples:
+  updatePet:
+    speakeasy-default-update-pet:
+      requestBody:
+        application/json: {"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": ["<value 1>"]}
+      responses:
+        "200":
+          application/json: {"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": []}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  addPet:
+    speakeasy-default-add-pet:
+      requestBody:
+        application/json: {"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": ["<value 1>", "<value 2>", "<value 3>"]}
+      responses:
+        "200":
+          application/json: {"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": ["<value 1>"]}
+  findPetsByStatus:
+    speakeasy-default-find-pets-by-status:
+      parameters:
+        query:
+          status: "available"
+      responses:
+        "200":
+          application/json: [{"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": ["<value 1>", "<value 2>"]}]
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  findPetsByTags:
+    speakeasy-default-find-pets-by-tags:
+      responses:
+        "200":
+          application/json: [{"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": []}]
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  getPetById:
+    speakeasy-default-get-pet-by-id:
+      parameters:
+        path:
+          petId: 311674
+      responses:
+        "200":
+          application/json: {"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": ["<value 1>"]}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  deletePet:
+    speakeasy-default-delete-pet:
+      parameters:
+        path:
+          petId: 818965
+      responses:
+        "200":
+          application/json: {"id": 10, "name": "doggie", "category": {"id": 1, "name": "Dogs"}, "photoUrls": []}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  uploadFile:
+    speakeasy-default-upload-file:
+      parameters:
+        path:
+          petId: 150516
+      responses:
+        "200":
+          application/json: {}
+  getInventory:
+    speakeasy-default-get-inventory:
+      responses:
+        "200":
+          application/json: {"key": 111959, "key1": 333452, "key2": 973245}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  placeOrder:
+    speakeasy-default-place-order:
+      requestBody:
+        application/json: {"id": 10, "petId": 198772, "quantity": 7, "status": "approved"}
+      responses:
+        "200":
+          application/json: {"id": 10, "petId": 198772, "quantity": 7, "status": "approved"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  getOrderById:
+    speakeasy-default-get-order-by-id:
+      parameters:
+        path:
+          orderId: 728529
+      responses:
+        "200":
+          application/json: {"id": 10, "petId": 198772, "quantity": 7, "status": "approved"}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  deleteOrder:
+    speakeasy-default-delete-order:
+      parameters:
+        path:
+          orderId: 690575
+      responses:
+        "200":
+          application/json: {"id": 10, "petId": 198772, "quantity": 7, "status": "approved"}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  createUser:
+    speakeasy-default-create-user:
+      requestBody:
+        application/json: {"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}
+      responses:
+        "200":
+          application/json: {"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}
+  createUsersWithListInput:
+    speakeasy-default-create-users-with-list-input:
+      requestBody:
+        application/json: [{"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}]
+      responses:
+        "200":
+          application/json: {"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}
+  loginUser:
+    speakeasy-default-login-user:
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  logoutUser: {}
+  getUserByName:
+    speakeasy-default-get-user-by-name:
+      parameters:
+        path:
+          username: "Edyth10"
+      responses:
+        "200":
+          application/json: {"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+  updateUser:
+    speakeasy-default-update-user:
+      parameters:
+        path:
+          username: "Alison.Cassin"
+      requestBody:
+        application/json: {"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}
+  deleteUser:
+    speakeasy-default-delete-user:
+      parameters:
+        path:
+          username: "Rita_Schuppe"
+      responses:
+        "200":
+          application/json: {"id": 10, "username": "theUser", "firstName": "John", "lastName": "James", "email": "john@email.com", "password": "12345", "phone": "12345", "userStatus": 1}
+        "400":
+          application/json: {"status": 400, "error": "Bad request"}
+        "401":
+          application/json: {"status": 401, "error": "Unauthorized"}
+        "404":
+          application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
+examplesVersion: 1.0.2

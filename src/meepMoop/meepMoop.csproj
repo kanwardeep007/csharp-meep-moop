@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>meepMoop</PackageId>
+    <Version>0.0.1</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <Authors>Speakeasy</Authors>
+    <Copyright>Copyright (c) Speakeasy 2025</Copyright>
+    <PackageProjectUrl>http://swagger.io</PackageProjectUrl>
+    <Description>Petstore - OpenAPI 3.1: This is a sample Pet Store Server based on the OpenAPI 3.1 specification.<br/>
+<br/>
+Some useful links:<br/>
+- <a href="https://www.speakeasy.com/openapi">OpenAPI Reference</a><br/>
+- <a href="https://github.com/swagger-api/swagger-petstore">The Pet Store repository</a><br/>
+- <a href="https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml">The source API definition for the Pet Store</a></Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="newtonsoft.json" Version="13.0.3" />
+    <PackageReference Include="nodatime" Version="3.1.9" />
+  </ItemGroup>
+
+</Project>

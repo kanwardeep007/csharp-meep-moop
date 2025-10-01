@@ -1,0 +1,9 @@
+# PlaceOrderResponse
+
+
+## Fields
+
+| Field                                                   | Type                                                    | Required                                                | Description                                             |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `HttpMeta`                                              | [HTTPMetadata](../../Models/Components/HTTPMetadata.md) | :heavy_check_mark:                                      | N/A                                                     |
+| `Order`                                                 | [Order](../../Models/Components/Order.md)               | :heavy_minus_sign:                                      | successful operation                                    |
