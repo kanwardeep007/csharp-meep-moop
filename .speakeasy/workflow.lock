@@ -13,8 +13,6 @@ targets:
         sourceNamespace: petstore-oas
         sourceRevisionDigest: sha256:0d17a4f4e032fe17e3323d4fb3d12035cf61f4796a8137683bed66423593567e
         sourceBlobDigest: sha256:de2acefc03c0f02e7d091c58eb0ba357e4c0e9fae858eb2d28ffc0f1580d0a3d
-        codeSamplesNamespace: petstore-oas-csharp-code-samples
-        codeSamplesRevisionDigest: sha256:a87e785e5f0b256b606940ca8b65658c0e094a963e0352a1214fc0308149ca78
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -29,6 +27,9 @@ workflow:
         petstore:
             target: csharp
             source: petstore-oas
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/gdmtesting/petstore/petstore-oas-csharp-code-samples

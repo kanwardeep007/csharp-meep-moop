@@ -3,8 +3,8 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>meepMoop</PackageId>
-    <Version>0.0.1</Version>
-    <TargetFramework>net8.0</TargetFramework>
+    <Version>0.0.2</Version>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Speakeasy</Authors>
     <Copyright>Copyright (c) Speakeasy 2025</Copyright>
     <PackageProjectUrl>http://swagger.io</PackageProjectUrl>
@@ -27,7 +27,7 @@ Some useful links:<br/>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\NUGET.md" Pack="true" PackagePath="README.md"/>
     <None Include="..\..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
   </ItemGroup>
 

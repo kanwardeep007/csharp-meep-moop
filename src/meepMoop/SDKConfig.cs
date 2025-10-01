@@ -50,7 +50,7 @@ namespace meepMoop
                     {"environment", "prod"},
                 },
             };
-            UserAgent = "speakeasy-sdk/csharp 0.0.1 2.716.4 1.0.0 meepMoop";
+            UserAgent = "speakeasy-sdk/csharp 0.0.2 2.716.4 1.0.0 meepMoop";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

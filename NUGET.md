@@ -1,65 +1,5 @@
 # meepMoop
 
-Developer-friendly & type-safe Csharp SDK specifically catered to leverage *meepMoop* API.
-
-<div align="left">
-    <a href="https://www.speakeasy.com/?utm_source=meep-moop&utm_campaign=csharp"><img src="https://www.speakeasy.com/assets/badges/built-by-speakeasy.svg" /></a>
-    <a href="https://opensource.org/licenses/MIT">
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
-    </a>
-</div>
-
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/gdmtesting/petstore). Delete this section before > publishing to a package manager.
-
-<!-- Start Summary [summary] -->
-## Summary
-
-Petstore - OpenAPI 3.1: This is a sample Pet Store Server based on the OpenAPI 3.1 specification.
-
-Some useful links:
-- [OpenAPI Reference](https://www.speakeasy.com/openapi)
-- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
-- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-
-For more information about the API: [Find out more about Swagger](http://swagger.io)
-<!-- End Summary [summary] -->
-
-<!-- Start Table of Contents [toc] -->
-## Table of Contents
-<!-- $toc-max-depth=2 -->
-* [meepMoop](#meepmoop)
-  * [SDK Installation](#sdk-installation)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
-
-<!-- End Table of Contents [toc] -->
-
-<!-- Start SDK Installation [installation] -->
-## SDK Installation
-
-### NuGet
-
-To add the [NuGet](https://www.nuget.org/) package to a .NET project:
-```bash
-dotnet add package meepMoop
-```
-
-### Locally
-
-To add a reference to a local instance of the SDK in a .NET project:
-```bash
-dotnet add reference src/meepMoop/meepMoop.csproj
-```
-<!-- End SDK Installation [installation] -->
 
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
@@ -127,43 +67,6 @@ var res = await sdk.Pet.UpdatePetAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
-
-<!-- Start Available Resources and Operations [operations] -->
-## Available Resources and Operations
-
-<details open>
-<summary>Available methods</summary>
-
-### [Pet](docs/sdks/pet/README.md)
-
-* [UpdatePet](docs/sdks/pet/README.md#updatepet) - Update an existing pet
-* [AddPet](docs/sdks/pet/README.md#addpet) - Add a new pet to the store
-* [FindPetsByStatus](docs/sdks/pet/README.md#findpetsbystatus) - Finds Pets by status
-* [FindPetsByTags](docs/sdks/pet/README.md#findpetsbytags) - Finds Pets by tags
-* [GetPetById](docs/sdks/pet/README.md#getpetbyid) - Find pet by ID
-* [DeletePet](docs/sdks/pet/README.md#deletepet) - Deletes a pet
-* [UploadFile](docs/sdks/pet/README.md#uploadfile) - uploads an image
-
-
-### [Store](docs/sdks/store/README.md)
-
-* [GetInventory](docs/sdks/store/README.md#getinventory) - Returns pet inventories by status
-* [PlaceOrder](docs/sdks/store/README.md#placeorder) - Place an order for a pet
-* [GetOrderById](docs/sdks/store/README.md#getorderbyid) - Find purchase order by ID
-* [DeleteOrder](docs/sdks/store/README.md#deleteorder) - Delete purchase order by ID
-
-### [User](docs/sdks/user/README.md)
-
-* [CreateUser](docs/sdks/user/README.md#createuser) - Create user
-* [CreateUsersWithListInput](docs/sdks/user/README.md#createuserswithlistinput) - Creates list of users with given input array
-* [LoginUser](docs/sdks/user/README.md#loginuser) - Logs user into the system
-* [LogoutUser](docs/sdks/user/README.md#logoutuser) - Logs out current logged in user session
-* [GetUserByName](docs/sdks/user/README.md#getuserbyname) - Get user by user name
-* [UpdateUser](docs/sdks/user/README.md#updateuser) - Update user
-* [DeleteUser](docs/sdks/user/README.md#deleteuser) - Delete user
-
-</details>
-<!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -329,18 +232,3 @@ var res = await sdk.Pet.UpdatePetAsync(req);
 <!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-
-# Development
-
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
-
-## Contributions
-
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
-
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=meep-moop&utm_campaign=csharp)

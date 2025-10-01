@@ -5,8 +5,9 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.628.3
   generationVersion: 2.716.4
-  releaseVersion: 0.0.1
-  configChecksum: fa8f38dd78a2fec638118a749f1bb5c0
+  releaseVersion: 0.0.2
+  configChecksum: 5f8881398127274b9f27ba16a83044b5
+  published: true
 features:
   csharp:
     additionalDependencies: 0.1.0
@@ -23,6 +24,7 @@ features:
     sdkHooks: 0.2.0
 generatedFiles:
   - .gitattributes
+  - NUGET.md
   - USAGE.md
   - docs/Models/Components/ApiResponse.md
   - docs/Models/Components/Category.md

@@ -14,8 +14,8 @@ generation:
     securityFeb2025: true
     sharedErrorComponentsApr2025: true
   auth:
-    oAuth2ClientCredentialsEnabled: true
-    oAuth2PasswordEnabled: true
+    oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
     hoistGlobalSecurity: true
   inferSSEOverload: true
   sdkHooksConfigAccess: true
@@ -24,14 +24,14 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 0.0.1
+  version: 0.0.2
   additionalDependencies: []
   author: Speakeasy
   baseErrorName: PetstoreException
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIException
   disableNamespacePascalCasingApr2024: true
-  dotnetVersion: net8.0
+  dotnetVersion: net6.0
   enableSourceLink: false
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
