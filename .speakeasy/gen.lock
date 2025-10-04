@@ -3,16 +3,17 @@ id: 188e7d84-b7a3-4f70-909a-c57872d04394
 management:
   docChecksum: 94d18e8061e37524106e93ca382d7a7f
   docVersion: 1.0.0
-  speakeasyVersion: 1.628.3
-  generationVersion: 2.716.4
-  releaseVersion: 0.0.4
-  configChecksum: 057855f6308e20f71296632f78c01608
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 0.1.0
+  configChecksum: 1402814c388317cc8a2d90a7ca9bfac9
+  repoURL: https://github.com/kanwardeep007/csharp-meep-moop.git
   published: true
 features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.12.4
+    core: 3.13.0
     flattening: 2.81.3
     globalSecurity: 2.83.8
     globalSecurityCallbacks: 0.1.0
