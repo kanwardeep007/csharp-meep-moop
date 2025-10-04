@@ -3,10 +3,12 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>meepMoop</PackageId>
-    <Version>0.0.4</Version>
+    <Version>0.1.0</Version>
     <TargetFramework>net6.0</TargetFramework>
     <Authors>Speakeasy</Authors>
     <Copyright>Copyright (c) Speakeasy 2025</Copyright>
+    <RepositoryUrl>https://github.com/kanwardeep007/csharp-meep-moop.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>http://swagger.io</PackageProjectUrl>
     <Description>Petstore - OpenAPI 3.1: This is a sample Pet Store Server based on the OpenAPI 3.1 specification.<br/>
 <br/>
