@@ -10,12 +10,11 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class GetOrderByIdRequest
     {
-
         /// <summary>
-        /// ID of order that needs to be fetched
+        /// ID of order that needs to be fetched.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=orderId")]
         public long OrderId { get; set; } = default!;

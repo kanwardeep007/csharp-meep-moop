@@ -11,12 +11,11 @@ namespace meepMoop.Models.Requests
 {
     using meepMoop.Models.Requests;
     using meepMoop.Utils;
-    
+
     public class FindPetsByStatusRequest
     {
-
         /// <summary>
-        /// Status values that need to be considered for filter
+        /// Status values that need to be considered for filter.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=status")]
         public Status? Status { get; set; } = meepMoop.Models.Requests.Status.Available;

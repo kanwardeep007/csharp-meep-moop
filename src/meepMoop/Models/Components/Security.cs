@@ -10,10 +10,9 @@
 namespace meepMoop.Models.Components
 {
     using meepMoop.Utils;
-    
+
     public class Security
     {
-
         [SpeakeasyMetadata("security:scheme=true,type=apiKey,subType=header,name=api_key")]
         public string ApiKey { get; set; } = default!;
     }
