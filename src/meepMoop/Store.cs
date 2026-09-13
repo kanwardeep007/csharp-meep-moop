@@ -23,83 +23,121 @@ namespace meepMoop
     using meepMoop.Utils.Retries;
 
     /// <summary>
-    /// Access to Petstore orders
-    /// 
-    /// <see>http://swagger.io} - Find out more about our store</see>
+    /// Access to Petstore orders<br/>
+    /// <see href="http://swagger.io">Find out more about our store</see>
     /// </summary>
     public interface IStore
     {
-
         /// <summary>
-        /// Returns pet inventories by status
-        /// 
-        /// <remarks>
-        /// Returns a map of status codes to quantities
-        /// </remarks>
+        /// Returns pet inventories by status.
         /// </summary>
-        Task<GetInventoryResponse> GetInventoryAsync();
-
-        /// <summary>
-        /// Place an order for a pet
-        /// 
         /// <remarks>
-        /// Place a new order in the store
+        /// Returns a map of status codes to quantities.
         /// </remarks>
-        /// </summary>
-        Task<PlaceOrderResponse> PlaceOrderAsync(Order? request = null);
+        /// <returns>An awaitable task that returns a <see cref="GetInventoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetInventoryResponse> GetInventoryAsync();
 
         /// <summary>
-        /// Find purchase order by ID
-        /// 
+        /// Place an order for a pet.
+        /// </summary>
+        /// <remarks>
+        /// Place a new order in the store.
+        /// </remarks>
+        /// <param name="request">A <see cref="Order"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="PlaceOrderResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<PlaceOrderResponse> PlaceOrderAsync(Order? request = null);
+
+        /// <summary>
+        /// Find purchase order by ID.
+        /// </summary>
         /// <remarks>
         /// For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generate exceptions.
         /// </remarks>
-        /// </summary>
-        Task<GetOrderByIdResponse> GetOrderByIdAsync(long orderId);
+        /// <param name="orderId">ID of order that needs to be fetched.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetOrderByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetOrderByIdResponse> GetOrderByIdAsync(long orderId);
 
         /// <summary>
-        /// Delete purchase order by ID
-        /// 
-        /// <remarks>
-        /// For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
-        /// </remarks>
+        /// Delete purchase order by ID.
         /// </summary>
-        Task<DeleteOrderResponse> DeleteOrderAsync(long orderId);
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors.
+        /// </remarks>
+        /// <param name="orderId">ID of the order that needs to be deleted.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteOrderResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteOrderResponse> DeleteOrderAsync(long orderId);
     }
 
     /// <summary>
-    /// Access to Petstore orders
-    /// 
-    /// <see>http://swagger.io} - Find out more about our store</see>
+    /// Access to Petstore orders<br/>
+    /// <see href="http://swagger.io">Find out more about our store</see>
     /// </summary>
     public class Store: IStore
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.4";
-        private const string _sdkGenVersion = "2.716.4";
-        private const string _openapiDocVersion = "1.0.0";
 
         public Store(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetInventoryResponse> GetInventoryAsync()
+        /// <summary>
+        /// Returns pet inventories by status.
+        /// </summary>
+        /// <remarks>
+        /// Returns a map of status codes to quantities.
+        /// </remarks>
+        /// <returns>An awaitable task that returns a <see cref="GetInventoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetInventoryResponse> GetInventoryAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/store/inventory";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getInventory", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getInventory", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -109,7 +147,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -118,9 +156,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -228,14 +266,32 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<PlaceOrderResponse> PlaceOrderAsync(Order? request = null)
+
+        /// <summary>
+        /// Place an order for a pet.
+        /// </summary>
+        /// <remarks>
+        /// Place a new order in the store.
+        /// </remarks>
+        /// <param name="request">A <see cref="Order"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="PlaceOrderResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<PlaceOrderResponse> PlaceOrderAsync(Order? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/store/order";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
             if (serializedBody != null)
@@ -248,7 +304,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "placeOrder", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "placeOrder", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -258,7 +314,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 404 || _statusCode == 405 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -267,9 +323,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -365,7 +421,7 @@ namespace meepMoop
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 405 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -377,24 +433,45 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetOrderByIdResponse> GetOrderByIdAsync(long orderId)
+
+        /// <summary>
+        /// Find purchase order by ID.
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generate exceptions.
+        /// </remarks>
+        /// <param name="orderId">ID of order that needs to be fetched.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetOrderByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetOrderByIdResponse> GetOrderByIdAsync(long orderId)
         {
             var request = new GetOrderByIdRequest()
             {
                 OrderId = orderId,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/store/order/{orderId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/store/order/{orderId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getOrderById", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getOrderById", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -404,7 +481,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -413,9 +490,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -549,24 +626,45 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteOrderResponse> DeleteOrderAsync(long orderId)
+
+        /// <summary>
+        /// Delete purchase order by ID.
+        /// </summary>
+        /// <remarks>
+        /// For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors.
+        /// </remarks>
+        /// <param name="orderId">ID of the order that needs to be deleted.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteOrderResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteOrderResponse> DeleteOrderAsync(long orderId)
         {
             var request = new DeleteOrderRequest()
             {
                 OrderId = orderId,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/store/order/{orderId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/store/order/{orderId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteOrder", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteOrder", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -576,7 +674,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -585,9 +683,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -720,5 +818,6 @@ namespace meepMoop
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

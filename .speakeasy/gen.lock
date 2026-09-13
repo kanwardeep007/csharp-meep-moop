@@ -3,146 +3,516 @@ id: 188e7d84-b7a3-4f70-909a-c57872d04394
 management:
   docChecksum: 94d18e8061e37524106e93ca382d7a7f
   docVersion: 1.0.0
-  speakeasyVersion: 1.628.3
-  generationVersion: 2.716.4
-  releaseVersion: 0.0.4
-  configChecksum: 057855f6308e20f71296632f78c01608
+  speakeasyVersion: 1.796.4
+  generationVersion: 2.935.1
+  releaseVersion: 0.1.0
+  configChecksum: dc895c89371d72d052a242e8343beb24
+  repoURL: https://github.com/kanwardeep007/csharp-meep-moop.git
+  installationURL: https://github.com/kanwardeep007/csharp-meep-moop
   published: true
+persistentEdits:
+  generation_id: 58eed723-e85b-4775-8e56-f70627440e7d
+  pristine_commit_hash: 90ebc2a6a1995755d12c9b57aa559d10123d49d4
+  pristine_tree_hash: f496fcbece91cbec3fdeb0a7cf44a9f383e4459c
 features:
   csharp:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.0.1
-    core: 3.12.4
+    constsAndDefaults: 0.0.3
+    core: 3.15.28
     flattening: 2.81.3
-    globalSecurity: 2.83.8
+    globalSecurity: 2.83.11
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.83.1
     intellisenseMarkdownSupport: 0.1.0
     methodArguments: 0.2.1
     responseFormat: 0.0.4
-    sdkHooks: 0.2.0
-generatedFiles:
-  - .gitattributes
-  - NUGET.md
-  - USAGE.md
-  - docs/Models/Components/ApiResponse.md
-  - docs/Models/Components/Category.md
-  - docs/Models/Components/HTTPMetadata.md
-  - docs/Models/Components/Order.md
-  - docs/Models/Components/OrderStatus.md
-  - docs/Models/Components/Pet.md
-  - docs/Models/Components/PetStatus.md
-  - docs/Models/Components/Security.md
-  - docs/Models/Components/Tag.md
-  - docs/Models/Components/User.md
-  - docs/Models/Errors/ApiErrorInvalidInput.md
-  - docs/Models/Errors/ApiErrorNotFound.md
-  - docs/Models/Errors/ApiErrorUnauthorized.md
-  - docs/Models/Requests/AddPetResponse.md
-  - docs/Models/Requests/CreateUserResponse.md
-  - docs/Models/Requests/CreateUsersWithListInputResponse.md
-  - docs/Models/Requests/DeleteOrderRequest.md
-  - docs/Models/Requests/DeleteOrderResponse.md
-  - docs/Models/Requests/DeletePetRequest.md
-  - docs/Models/Requests/DeletePetResponse.md
-  - docs/Models/Requests/DeleteUserRequest.md
-  - docs/Models/Requests/DeleteUserResponse.md
-  - docs/Models/Requests/FindPetsByStatusRequest.md
-  - docs/Models/Requests/FindPetsByStatusResponse.md
-  - docs/Models/Requests/FindPetsByTagsRequest.md
-  - docs/Models/Requests/FindPetsByTagsResponse.md
-  - docs/Models/Requests/GetInventoryResponse.md
-  - docs/Models/Requests/GetOrderByIdRequest.md
-  - docs/Models/Requests/GetOrderByIdResponse.md
-  - docs/Models/Requests/GetPetByIdRequest.md
-  - docs/Models/Requests/GetPetByIdResponse.md
-  - docs/Models/Requests/GetUserByNameRequest.md
-  - docs/Models/Requests/GetUserByNameResponse.md
-  - docs/Models/Requests/LogoutUserResponse.md
-  - docs/Models/Requests/PlaceOrderResponse.md
-  - docs/Models/Requests/Status.md
-  - docs/Models/Requests/UpdatePetResponse.md
-  - docs/Models/Requests/UpdateUserRequest.md
-  - docs/Models/Requests/UpdateUserResponse.md
-  - docs/Models/Requests/UploadFileRequest.md
-  - docs/Models/Requests/UploadFileResponse.md
-  - docs/sdks/pet/README.md
-  - docs/sdks/petstore/README.md
-  - docs/sdks/store/README.md
-  - docs/sdks/user/README.md
-  - global.json
-  - meepMoop.sln
-  - src/meepMoop/Hooks/HookTypes.cs
-  - src/meepMoop/Hooks/SDKHooks.cs
-  - src/meepMoop/Models/Components/ApiResponse.cs
-  - src/meepMoop/Models/Components/Category.cs
-  - src/meepMoop/Models/Components/HTTPMetadata.cs
-  - src/meepMoop/Models/Components/Order.cs
-  - src/meepMoop/Models/Components/OrderStatus.cs
-  - src/meepMoop/Models/Components/Pet.cs
-  - src/meepMoop/Models/Components/PetStatus.cs
-  - src/meepMoop/Models/Components/Security.cs
-  - src/meepMoop/Models/Components/Tag.cs
-  - src/meepMoop/Models/Components/User.cs
-  - src/meepMoop/Models/Errors/APIException.cs
-  - src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs
-  - src/meepMoop/Models/Errors/ApiErrorNotFound.cs
-  - src/meepMoop/Models/Errors/ApiErrorUnauthorized.cs
-  - src/meepMoop/Models/Errors/PetstoreException.cs
-  - src/meepMoop/Models/Errors/ResponseValidationException.cs
-  - src/meepMoop/Models/Requests/AddPetResponse.cs
-  - src/meepMoop/Models/Requests/CreateUserResponse.cs
-  - src/meepMoop/Models/Requests/CreateUsersWithListInputResponse.cs
-  - src/meepMoop/Models/Requests/DeleteOrderRequest.cs
-  - src/meepMoop/Models/Requests/DeleteOrderResponse.cs
-  - src/meepMoop/Models/Requests/DeletePetRequest.cs
-  - src/meepMoop/Models/Requests/DeletePetResponse.cs
-  - src/meepMoop/Models/Requests/DeleteUserRequest.cs
-  - src/meepMoop/Models/Requests/DeleteUserResponse.cs
-  - src/meepMoop/Models/Requests/FindPetsByStatusRequest.cs
-  - src/meepMoop/Models/Requests/FindPetsByStatusResponse.cs
-  - src/meepMoop/Models/Requests/FindPetsByTagsRequest.cs
-  - src/meepMoop/Models/Requests/FindPetsByTagsResponse.cs
-  - src/meepMoop/Models/Requests/GetInventoryResponse.cs
-  - src/meepMoop/Models/Requests/GetOrderByIdRequest.cs
-  - src/meepMoop/Models/Requests/GetOrderByIdResponse.cs
-  - src/meepMoop/Models/Requests/GetPetByIdRequest.cs
-  - src/meepMoop/Models/Requests/GetPetByIdResponse.cs
-  - src/meepMoop/Models/Requests/GetUserByNameRequest.cs
-  - src/meepMoop/Models/Requests/GetUserByNameResponse.cs
-  - src/meepMoop/Models/Requests/LogoutUserResponse.cs
-  - src/meepMoop/Models/Requests/PlaceOrderResponse.cs
-  - src/meepMoop/Models/Requests/Status.cs
-  - src/meepMoop/Models/Requests/UpdatePetResponse.cs
-  - src/meepMoop/Models/Requests/UpdateUserRequest.cs
-  - src/meepMoop/Models/Requests/UpdateUserResponse.cs
-  - src/meepMoop/Models/Requests/UploadFileRequest.cs
-  - src/meepMoop/Models/Requests/UploadFileResponse.cs
-  - src/meepMoop/Pet.cs
-  - src/meepMoop/Petstore.cs
-  - src/meepMoop/SDKConfig.cs
-  - src/meepMoop/Store.cs
-  - src/meepMoop/User.cs
-  - src/meepMoop/Utils/AnyDeserializer.cs
-  - src/meepMoop/Utils/BigIntStrConverter.cs
-  - src/meepMoop/Utils/DecimalStrConverter.cs
-  - src/meepMoop/Utils/EnumConverter.cs
-  - src/meepMoop/Utils/FlexibleObjectDeserializer.cs
-  - src/meepMoop/Utils/HeaderSerializer.cs
-  - src/meepMoop/Utils/IsoDateTimeSerializer.cs
-  - src/meepMoop/Utils/OpenEnumConverter.cs
-  - src/meepMoop/Utils/PetstoreHttpClient.cs
-  - src/meepMoop/Utils/RequestBodySerializer.cs
-  - src/meepMoop/Utils/ResponseBodyDeserializer.cs
-  - src/meepMoop/Utils/Retries/BackoffStrategy.cs
-  - src/meepMoop/Utils/Retries/Retries.cs
-  - src/meepMoop/Utils/Retries/RetryConfig.cs
-  - src/meepMoop/Utils/SecurityMetadata.cs
-  - src/meepMoop/Utils/SpeakeasyMetadata.cs
-  - src/meepMoop/Utils/URLBuilder.cs
-  - src/meepMoop/Utils/Utilities.cs
-  - src/meepMoop/meepMoop.csproj
+    sdkHooks: 0.3.0
+trackedFiles:
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:6cf623aa5081ea7f1e32b99d74fac393718a29cf
+    pristine_git_object: c094dba670119a1a5414e11c713a4ea3218147cd
+  NUGET.md:
+    id: f4c8a442a6e5
+    last_write_checksum: sha1:d90a311833786444f370f14a03cd3665eb40c78f
+    pristine_git_object: 252ef0687cf5f2e442e9c9bf9648cb453eb07fd0
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:460a8a281c97cf1df60a2b12655435c63c01964d
+    pristine_git_object: 1124498c5b3437a72be3bceed084c7b59bf3acd7
+  docs/Models/Components/ApiResponse.md:
+    id: e7238e6a85aa
+    last_write_checksum: sha1:6a98e18d5b1e29d2d7c4a2653355165ba14b7194
+    pristine_git_object: 2d29d775fe208238180dced6e1a4c038bfef293d
+  docs/Models/Components/Category.md:
+    id: ebe31e3199fe
+    last_write_checksum: sha1:01115c50986a960ab698541ff36bcfd5888e8c64
+    pristine_git_object: 4d837c88e3e86d436a493384f0c56aefef63b834
+  docs/Models/Components/HTTPMetadata.md:
+    id: 05de2fd15279
+    last_write_checksum: sha1:08fe4d295519e310847d7500b27fd60eb5124293
+    pristine_git_object: e01c47a3aad01cce33962b089a2a72da72c468df
+  docs/Models/Components/Order.md:
+    id: 1e95ae5483f8
+    last_write_checksum: sha1:5512b444bf53b09499dbd0dc6475049ac419d730
+    pristine_git_object: 66dff47e755dc5f08e73d79274688ae9125a61c2
+  docs/Models/Components/OrderStatus.md:
+    id: 15f0c1bbbf5e
+    last_write_checksum: sha1:09a60527bbd98d3919ae2637f8b0035180ea22b2
+    pristine_git_object: e4f458eda057934fce4d176bf1e736ba1d2f067b
+  docs/Models/Components/Pet.md:
+    id: a4894f8745cd
+    last_write_checksum: sha1:4df7dfd108105fe7bb086d6726bfbc8dadcd5ce3
+    pristine_git_object: 58a5b63f9029b1680d725a6314afdd5742647091
+  docs/Models/Components/PetStatus.md:
+    id: 33475ada004c
+    last_write_checksum: sha1:46b8927ab17952c02b7e4fc72934b9ecc40dae7e
+    pristine_git_object: 5de578c15ee1a43ab59cacf77bdcca91d25a8ad6
+  docs/Models/Components/Security.md:
+    id: 7bcd54fda13a
+    last_write_checksum: sha1:8c4920e4219b60f35f67ca62fe17872a06737f3b
+    pristine_git_object: 7abdaa92dd40680e3ac0894756a9904f255f4b31
+  docs/Models/Components/Tag.md:
+    id: 46ceceba4074
+    last_write_checksum: sha1:31ab2faea3e2982c97ddeea0c01ebf3e64ae5569
+    pristine_git_object: 1632779c4c85aedb16c9e3b51daeffaae8f7777a
+  docs/Models/Components/User.md:
+    id: d91a5ce53244
+    last_write_checksum: sha1:08a94e411f61b7eead974514fe59761bb35d0af5
+    pristine_git_object: 20d0e5c11b408e9e14ef1f388040ab906fab681c
+  docs/Models/Errors/ApiErrorInvalidInput.md:
+    id: 857f1ad95c44
+    last_write_checksum: sha1:00b5b570b2f3e5d210c98a28742ea166e688cec8
+    pristine_git_object: 099dacbc66a5b8572f1e6916f5d70f1ad2461fb3
+  docs/Models/Errors/ApiErrorNotFound.md:
+    id: 7ad74da1d046
+    last_write_checksum: sha1:a643bba0d8cf27b564182547fe094a4d5b642b12
+    pristine_git_object: c2a7551f01b349e48ad4b1f632b82480edec2bf7
+  docs/Models/Errors/ApiErrorUnauthorized.md:
+    id: 6311b6fdc402
+    last_write_checksum: sha1:fe4dadcdcc1773c4bbc6fdb2d84936a901851326
+    pristine_git_object: 013789b42dbb172b6243acc9c405606c2dc76593
+  docs/Models/Requests/AddPetResponse.md:
+    id: 95f3f3b5bb15
+    last_write_checksum: sha1:e4eb374eb1304a22eb62da294c874c082f9a63ac
+    pristine_git_object: 0b23582a1482faaea23be507174b3ab0032a6a94
+  docs/Models/Requests/CreateUserResponse.md:
+    id: 321be2e99e57
+    last_write_checksum: sha1:f19195b8b8d60200de2ec312f635403cd4bc1ca5
+    pristine_git_object: 95a5db7e4a61839da8f690f0199aadd3abe1fe67
+  docs/Models/Requests/CreateUsersWithListInputResponse.md:
+    id: 177780f28d73
+    last_write_checksum: sha1:2518195c0531a62c318ea97aa8f9cd5997a574a9
+    pristine_git_object: ec68c9e9b8d0615905796f31c64e28911bd3ed27
+  docs/Models/Requests/DeleteOrderRequest.md:
+    id: 68a1122e928a
+    last_write_checksum: sha1:0b2d18e364f75667661dc6c624338ddf28b91f3c
+    pristine_git_object: 65e6c9b3da66b2ab5fde7a19d2f2791ac0ed95d0
+  docs/Models/Requests/DeleteOrderResponse.md:
+    id: d539c4f0d371
+    last_write_checksum: sha1:422c759e10b3ce88e6eeb19694fc74551ebaa245
+    pristine_git_object: a48de2cc16737d18241469d90ecb936a34c0b776
+  docs/Models/Requests/DeletePetRequest.md:
+    id: eff518b905ed
+    last_write_checksum: sha1:73f10bae032dd98aecdd4e09fe7bdd67318878ef
+    pristine_git_object: 8cfb0f122cc2c7ca09a88c6ee47d3cbf59f4aa05
+  docs/Models/Requests/DeletePetResponse.md:
+    id: aeb872865f18
+    last_write_checksum: sha1:ab6db251b485b7b32ec2604087c1d7d97eed77e5
+    pristine_git_object: 301368afcbcb73d7b0aaee2806b792b29e4c7449
+  docs/Models/Requests/DeleteUserRequest.md:
+    id: 9ae11252508b
+    last_write_checksum: sha1:238089598c43f5474b120d137bd2297c66760276
+    pristine_git_object: fe1bbd055f553bd03a8390e91c08cc4cb8648239
+  docs/Models/Requests/DeleteUserResponse.md:
+    id: 728a3e16e417
+    last_write_checksum: sha1:e39539e4f2eb4142260701ecbad67aafbb2a2c3a
+    pristine_git_object: fe4826e0dabc7e0d4c291fee5a627432e7c64a17
+  docs/Models/Requests/FindPetsByStatusRequest.md:
+    id: 3621c333d90d
+    last_write_checksum: sha1:b0f1ef3d1ba6263f3486f29b4829bd5bb47484d6
+    pristine_git_object: 8772dae9e6ecf7ac8cf6e2650031904723f4f34d
+  docs/Models/Requests/FindPetsByStatusResponse.md:
+    id: 5b93e768f211
+    last_write_checksum: sha1:5ae7ce113b6e8220f5de02994cc7a17a41404030
+    pristine_git_object: a1e718403defb15bdab5d80218d7225077e9b4dd
+  docs/Models/Requests/FindPetsByTagsRequest.md:
+    id: 8f86afc42969
+    last_write_checksum: sha1:ee762ac0a061b92b5c5267c6a46700a43e1cdf88
+    pristine_git_object: 3b3338ff33233408e5aa8104e27c6fc9354ef7ff
+  docs/Models/Requests/FindPetsByTagsResponse.md:
+    id: 1f5c7797b6c2
+    last_write_checksum: sha1:c52554758d268d2984821a98fc40b8a5ce817d20
+    pristine_git_object: 0341a837aebf54e2e7d6b4402e92deb60e2a3ce1
+  docs/Models/Requests/GetInventoryResponse.md:
+    id: c5790686b5a5
+    last_write_checksum: sha1:ef098ee8f840d8dc1a2f694d48056689db52b1cd
+    pristine_git_object: 73fe295451af90ccb963dc2d16620f4b6816aed7
+  docs/Models/Requests/GetOrderByIdRequest.md:
+    id: d95cd7fd30d6
+    last_write_checksum: sha1:76cab51e3034ad2757b11d05cfb5d6ab1f338382
+    pristine_git_object: 0ee3f18f4c94b085b37c47f7190a2db63b3b8bbe
+  docs/Models/Requests/GetOrderByIdResponse.md:
+    id: 88629ea41869
+    last_write_checksum: sha1:5af80baec7fe60291018338126491c0818480b93
+    pristine_git_object: 33a9f96ec364aa5c140d7406b47f87716f32300b
+  docs/Models/Requests/GetPetByIdRequest.md:
+    id: 543a90690213
+    last_write_checksum: sha1:8116a496b4b9535d5feb60bd8df80f5bfeb13de4
+    pristine_git_object: 45ffee99aad8858371cdd71351488312d0272033
+  docs/Models/Requests/GetPetByIdResponse.md:
+    id: cd79d25309e1
+    last_write_checksum: sha1:b63ee50f583d6d905577764510ffe0dbbabf7b13
+    pristine_git_object: 67d8e4463bb2f7a743df11fd47003242e06cfca9
+  docs/Models/Requests/GetUserByNameRequest.md:
+    id: 29b3df4ab934
+    last_write_checksum: sha1:d56fb6203aabb6bf23496742feea28beb7f8c347
+    pristine_git_object: 4b473df81ecc50ea6ae95ebfeefdda7e31b92b07
+  docs/Models/Requests/GetUserByNameResponse.md:
+    id: 04e6c472ca44
+    last_write_checksum: sha1:b0966193fbe8ab59458e42f764d85f7f4ec7753d
+    pristine_git_object: be9530eda954e85d0ac7f744bfdb4fbfd302b0d7
+  docs/Models/Requests/LogoutUserResponse.md:
+    id: 5ee7b186099b
+    last_write_checksum: sha1:25bf83dbcdd05a675fb9d1b6d174fee2b615e9f2
+    pristine_git_object: 99f95388fbeacb78ba2abfe3c720809074479289
+  docs/Models/Requests/PlaceOrderResponse.md:
+    id: aebbf71b1e9d
+    last_write_checksum: sha1:9f43f789b068423bb54625ab898d4698bb0be9d0
+    pristine_git_object: 8d8b71ca745428531801ede6acfaf2411ff8a5ef
+  docs/Models/Requests/Status.md:
+    id: 8de2d8e03951
+    last_write_checksum: sha1:75b936432c1ccc173da8d458cb859489352bd524
+    pristine_git_object: b50ee3597b441a3cb40f82d79c3bef99d832c211
+  docs/Models/Requests/UpdatePetResponse.md:
+    id: 4a1b849e0f89
+    last_write_checksum: sha1:5abc8a00cdbecd86f5c0b2947bd304e1ca79ad73
+    pristine_git_object: dd92ff12e1910021097b9851847117e24121222b
+  docs/Models/Requests/UpdateUserRequest.md:
+    id: cc7627139003
+    last_write_checksum: sha1:fe7731a9b9aa55dbac60b0d3d56028bcdc867cd5
+    pristine_git_object: 1c160f6b8d0869ddbf752c5f9046dcbfaeb81f37
+  docs/Models/Requests/UpdateUserResponse.md:
+    id: 6fa52e73de43
+    last_write_checksum: sha1:983ca1de987b27abf32368458a137e77c56cfa05
+    pristine_git_object: 13c8f096bc6bee63f18953c463d7e0831eda9ba3
+  docs/Models/Requests/UploadFileRequest.md:
+    id: 1d6b8798fa7d
+    last_write_checksum: sha1:311ccd52a4ffa766fbeeb1be1e7997b03c6b1048
+    pristine_git_object: 549d495fdaa2ae56e70bbe91ca867ac20ed669f8
+  docs/Models/Requests/UploadFileResponse.md:
+    id: fc8dd419ab52
+    last_write_checksum: sha1:910689d92a69aa5026739a585abe2ffe15048da0
+    pristine_git_object: d8e4cbc9835f57c46936db7efd16027a6ca4f5dc
+  docs/sdks/pet/README.md:
+    id: 7745e380bb78
+    last_write_checksum: sha1:471fd50d47e2931f701d57bd3eb99165f6fff1e1
+    pristine_git_object: cbb45a6c39d2ca11015ce533a8e8b4966f856960
+  docs/sdks/store/README.md:
+    id: c7c274b48df2
+    last_write_checksum: sha1:2487e5f09cf19be49097527554de585153ddca3e
+    pristine_git_object: 3bc0c62249abb91f677465a17de35e851272eb9c
+  docs/sdks/user/README.md:
+    id: 437dd7dc6e30
+    last_write_checksum: sha1:4630b2e15a1e99b6b748b7d6b5dcbc0c60cb42dc
+    pristine_git_object: 94e5ea60f096ec1550b905a1fc8f85302a8a517a
+  global.json:
+    id: 908e72401bf4
+    last_write_checksum: sha1:01473f6b7b44feb83e45cafd45177fed791c38ff
+    pristine_git_object: b7d28eaab2e3163350a21bee9262ff5f1b53d20d
+  meepMoop.sln:
+    id: 862d62acc8b5
+    last_write_checksum: sha1:8f68324b44fc7576661455496cba80de00a3fbf0
+    pristine_git_object: 322c74a1c656d3c892ecfff7e0116d838065326f
+  src/meepMoop/Hooks/HookTypes.cs:
+    id: 654dcf02b7fc
+    last_write_checksum: sha1:84adc1fe937c0a608bc731ddb347f56eb678a5ec
+    pristine_git_object: 4f606ffc2757edc2d1908a2667f9c98b32e36d28
+  src/meepMoop/Hooks/SDKHooks.cs:
+    id: 8f6058cb325c
+    last_write_checksum: sha1:c809a7a8ec96dd07588104476bc7a11cc2809d88
+    pristine_git_object: 75c38da1e4d2799319177b439999b88e59447eb6
+  src/meepMoop/Models/Components/ApiResponse.cs:
+    id: 588f1c54a46a
+    last_write_checksum: sha1:61d73524a627ec4d12b1a2cd08887f1937b34b59
+    pristine_git_object: 9f244062ec8a11000ecc357700f9ad4176d3e8b0
+  src/meepMoop/Models/Components/Category.cs:
+    id: 4032d8276b9e
+    last_write_checksum: sha1:d5609207b0255b4a7f9e568f592ab2593ff0bbc7
+    pristine_git_object: df5aed8f63c5bd93e4e174b4be26a717bd69be15
+  src/meepMoop/Models/Components/HTTPMetadata.cs:
+    id: 124f5ba87113
+    last_write_checksum: sha1:6db6f7756050d62eb287656d258062240b3efa94
+    pristine_git_object: 61a60018b23ac49db5f51b9a73ae3d7362f7492b
+  src/meepMoop/Models/Components/Order.cs:
+    id: 882227970fd8
+    last_write_checksum: sha1:9767a43221e5a3af1438e5ea5855a494306c159c
+    pristine_git_object: 7eb9ae9b3f97e5bde93b138881a78125af36d162
+  src/meepMoop/Models/Components/OrderStatus.cs:
+    id: 3c30af240fe0
+    last_write_checksum: sha1:43f4b9332e09d52e647442b245e56c86888b504e
+    pristine_git_object: 03dd2cc21cd84f2e93e56b2bccff1cac4418dd07
+  src/meepMoop/Models/Components/Pet.cs:
+    id: cbf4b3fc12d1
+    last_write_checksum: sha1:665627fd0de54b0afbea99571104db7e6e5308e9
+    pristine_git_object: cfc1c8c1e5d97844703420af7c8259d4889b7e66
+  src/meepMoop/Models/Components/PetStatus.cs:
+    id: 2a3302c474e4
+    last_write_checksum: sha1:7a1255ed4fe9008e5460fbdbb572f1f361fce945
+    pristine_git_object: 2a53f98717b8c1a6d5a3d546bcb4f9f609279d56
+  src/meepMoop/Models/Components/Security.cs:
+    id: 442bfc3805cc
+    last_write_checksum: sha1:4aaa9103eff173b977f8e9287cbf44660f52a85f
+    pristine_git_object: 9fdd3e6a3f4e7c42f851886befd4d0216f826264
+  src/meepMoop/Models/Components/Tag.cs:
+    id: 6788a5522ca3
+    last_write_checksum: sha1:cd7614b2b4ac80ca0e2b1a0e0a2dc56dc639e13e
+    pristine_git_object: 4db5cb7ce75a829170c25ad06cc6354817921655
+  src/meepMoop/Models/Components/User.cs:
+    id: 76b56d20c9b1
+    last_write_checksum: sha1:255e1900906d25faf1284e1e48498e83a8b0753f
+    pristine_git_object: 71a910a45bcbdbc57c06634b43389bc5b94dc522
+  src/meepMoop/Models/Errors/APIException.cs:
+    id: 610cc5751c8c
+    last_write_checksum: sha1:fe9e0d843c266a81090b1221085cd2f56468abaa
+    pristine_git_object: d7b879c26365f48e73d966795e4d44c3000fa16f
+  src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs:
+    id: 97c698be46f8
+    last_write_checksum: sha1:81e60880d4d55bc1d104eff1b21f78b963a108c3
+    pristine_git_object: 0b14506b32fe2373850f699fd018c978f1741e17
+  src/meepMoop/Models/Errors/ApiErrorNotFound.cs:
+    id: d4439ac86f89
+    last_write_checksum: sha1:8a6f399e567c8f2e96bc289c1af0d0fb9d9c87dc
+    pristine_git_object: fb63ccf87714c4045433d9e36c59a17ffb34235a
+  src/meepMoop/Models/Errors/ApiErrorUnauthorized.cs:
+    id: 76096e29aaec
+    last_write_checksum: sha1:47741d23cfcbe15f5e2163cb60d71d4225588c84
+    pristine_git_object: 71fbd62e3c9af6e1921c1d095850d2650ea97f02
+  src/meepMoop/Models/Errors/PetstoreException.cs:
+    id: 076e7a6a9b10
+    last_write_checksum: sha1:7fd1f0890b0ee4475e2918a29d36a0cf7b904b21
+    pristine_git_object: 2abfa75b58f1602844299e2f31b8340688b39ae1
+  src/meepMoop/Models/Errors/ResponseValidationException.cs:
+    id: 4a8d928060b3
+    last_write_checksum: sha1:6e53a4e7530594b6c5a27c487539a5a887fed7fe
+    pristine_git_object: 4635b695565a9d760eb81f40b8ef3c6c2e1f742b
+  src/meepMoop/Models/Requests/AddPetResponse.cs:
+    id: aae812c2d775
+    last_write_checksum: sha1:e5f932abb0821eab1f9cd2bbd23e865eddc2caf3
+    pristine_git_object: ba6243696f0604d719921b34727683142f76aa7c
+  src/meepMoop/Models/Requests/CreateUserResponse.cs:
+    id: 6e1663f2c407
+    last_write_checksum: sha1:052a21f971f5ef243483dabd75b3ebc605842673
+    pristine_git_object: bade9ecbb68d40871e3a307e0b198cf4724ef22d
+  src/meepMoop/Models/Requests/CreateUsersWithListInputResponse.cs:
+    id: 24683306b132
+    last_write_checksum: sha1:ca58341381f19225193c9d933078f42a531e3abe
+    pristine_git_object: 10ad39ded943efeb4038b3b14047b97ffb0accc3
+  src/meepMoop/Models/Requests/DeleteOrderRequest.cs:
+    id: 6b7ee843ef04
+    last_write_checksum: sha1:56e6615aa639a20e9b2e50187181152d02656c1b
+    pristine_git_object: b5299d6a16f68ee9761100cf57e3350c90dd6ce1
+  src/meepMoop/Models/Requests/DeleteOrderResponse.cs:
+    id: 2c7423fa92ce
+    last_write_checksum: sha1:9754986d919c177dc4964a2016304b09513c5e0c
+    pristine_git_object: 36d91e78ac2d132a826d563a9a5fcece1dbb59dc
+  src/meepMoop/Models/Requests/DeletePetRequest.cs:
+    id: 24919810adbb
+    last_write_checksum: sha1:249c6f18fbd2a665638fbdbb4a7863bc62d92c19
+    pristine_git_object: eefb7009316711a4cf883b072556c99b806fe211
+  src/meepMoop/Models/Requests/DeletePetResponse.cs:
+    id: f30e74db63ee
+    last_write_checksum: sha1:c94eab52d43e09ef8d8309f8deb57e63a4a9a128
+    pristine_git_object: da99c597b451ee9fae39f0902693c6e9a0fe9d9f
+  src/meepMoop/Models/Requests/DeleteUserRequest.cs:
+    id: fa643ffcf674
+    last_write_checksum: sha1:687c26deee8836af871c1b9bff188b33138c3c9b
+    pristine_git_object: 6b291520cac0e3e05ff41af8e9394c6c2b06d21e
+  src/meepMoop/Models/Requests/DeleteUserResponse.cs:
+    id: b95718c1db62
+    last_write_checksum: sha1:bb10e98b2015d8277760d1c2c750fde120503d00
+    pristine_git_object: b475f0042adfcd7a0aeb8db1745970a6490f02d1
+  src/meepMoop/Models/Requests/FindPetsByStatusRequest.cs:
+    id: e807de21fc2b
+    last_write_checksum: sha1:b28d9bb65da469b5b035e162b02d0d031ab51344
+    pristine_git_object: b41f601053e501c70bc55bd7f33cc82192f0aa87
+  src/meepMoop/Models/Requests/FindPetsByStatusResponse.cs:
+    id: dc9f3ba69373
+    last_write_checksum: sha1:84fa54d9f1a242cc6d09102a896bed838e75bb1a
+    pristine_git_object: 0f629f1b980dcdd90df766105dcf01ac8487781f
+  src/meepMoop/Models/Requests/FindPetsByTagsRequest.cs:
+    id: f4245f360e11
+    last_write_checksum: sha1:e02c3899ce27e6211834ce225999bc022b45dc37
+    pristine_git_object: 0970aeff99a8825758eb008c368cb5d31c3521d2
+  src/meepMoop/Models/Requests/FindPetsByTagsResponse.cs:
+    id: 7a089d610b00
+    last_write_checksum: sha1:6fe66dc89ea4c6fa5ba5111bb35aa8aca340a8f6
+    pristine_git_object: 243210d19b8dd8f622be9bd2aabea375dac4eed4
+  src/meepMoop/Models/Requests/GetInventoryResponse.cs:
+    id: a6310448740c
+    last_write_checksum: sha1:a15abdfa8e31428a54d04513b3f2b7b5f0bca93b
+    pristine_git_object: c0309455d458a85ecfdf70bb883c3853fa9542bd
+  src/meepMoop/Models/Requests/GetOrderByIdRequest.cs:
+    id: 5d2d984ad641
+    last_write_checksum: sha1:39ff6b05939992baecdb91e8aabce702535ad42b
+    pristine_git_object: 717bbd18c2eae93d9e47932d75490fcdeb649054
+  src/meepMoop/Models/Requests/GetOrderByIdResponse.cs:
+    id: 62ff4001f654
+    last_write_checksum: sha1:b484ff1deb4a74495ae50424abf5ba0b7b902bdd
+    pristine_git_object: 8e48f55e0dbf62e6d43fa1f902cb8043df56a00b
+  src/meepMoop/Models/Requests/GetPetByIdRequest.cs:
+    id: 992d11595b07
+    last_write_checksum: sha1:d41a2b020f25b33c46218cb88fbce165cdd0ebc5
+    pristine_git_object: a4e26388d3bbd0440a9ac385c87b6dcfc1d5e74f
+  src/meepMoop/Models/Requests/GetPetByIdResponse.cs:
+    id: 6ecc6d999a00
+    last_write_checksum: sha1:c2cf7e35b713fc9ce8889fa40bc377b42e9f6739
+    pristine_git_object: 70f77f3ce91596afcc46d7e374f1978c68b4bcff
+  src/meepMoop/Models/Requests/GetUserByNameRequest.cs:
+    id: 2d826d7d3299
+    last_write_checksum: sha1:572d236644260f43dce06de83ad759cdf57e36a0
+    pristine_git_object: dd954085eda17a1a0a854fbbc1941ddf593b83f8
+  src/meepMoop/Models/Requests/GetUserByNameResponse.cs:
+    id: 0a7ac75db601
+    last_write_checksum: sha1:ed19348727f7acfa963c16f736c1d6e8993619bd
+    pristine_git_object: c615e9d9c43ce5d09803fd3f6a3cf05b9aea32ec
+  src/meepMoop/Models/Requests/LogoutUserResponse.cs:
+    id: a640719b55e1
+    last_write_checksum: sha1:1156de9b6dc6d33ed6060c277bb6f24a5d94642b
+    pristine_git_object: 7c2993585975f8b73861c1008cd4692bfaca2811
+  src/meepMoop/Models/Requests/PlaceOrderResponse.cs:
+    id: a7ca833f5190
+    last_write_checksum: sha1:9f3faf43a652a65e8d2c60a5c9a86c42244a3182
+    pristine_git_object: fc2cf35e23f601fb37ef7d4e99077c398ef45c7c
+  src/meepMoop/Models/Requests/Status.cs:
+    id: 2f488168d89f
+    last_write_checksum: sha1:3ecc9bc2f773e2c2889a2f87054cd0ceda0215c6
+    pristine_git_object: cb185d79595c2f0ce2700ab4b57fe780125b8eeb
+  src/meepMoop/Models/Requests/UpdatePetResponse.cs:
+    id: b7cef0d3818f
+    last_write_checksum: sha1:6fc3313e0af064ffdd7a601d1ae09ed74b302bc1
+    pristine_git_object: 5fdb08b5d77173ba86b0cc828f827aa7dc057e08
+  src/meepMoop/Models/Requests/UpdateUserRequest.cs:
+    id: 31ec943331cd
+    last_write_checksum: sha1:5a1d2244796ac8e317e9159d513eefa94d2cf8be
+    pristine_git_object: 743cddfb383ffef54aa22b9b351dd8bcdd367b98
+  src/meepMoop/Models/Requests/UpdateUserResponse.cs:
+    id: 56d52b935342
+    last_write_checksum: sha1:10058cf49df98412e8db1751c5a3b6f9ab06ea2f
+    pristine_git_object: 74063e76a5b56cccfa2d80b181dbf6c241c7b9e8
+  src/meepMoop/Models/Requests/UploadFileRequest.cs:
+    id: 4042731b80bb
+    last_write_checksum: sha1:528d596106ec2cc0e0a378109b433fad2ac81c7e
+    pristine_git_object: 7276c67520f38c4b56d4fcaf23c2f44b74d8bc32
+  src/meepMoop/Models/Requests/UploadFileResponse.cs:
+    id: 8144dd0501d9
+    last_write_checksum: sha1:6854e06816b22744a0314dfbcccbf31abf207298
+    pristine_git_object: 43fa4731e152371998bd6a7854525167808cce89
+  src/meepMoop/Pet.cs:
+    id: 7a61dd6fb58b
+    last_write_checksum: sha1:0227f192db7a4f2744143c429bbb27f3f7f20d4e
+    pristine_git_object: 17cc4acfee390cc778db6d17d2fc9e4e799fb8be
+  src/meepMoop/Petstore.cs:
+    id: 4710e662671d
+    last_write_checksum: sha1:3e6bd65e2b1cba9512ee0a4f21ac6661fe2b5e2b
+    pristine_git_object: 6cf99c42bc129abfd7cbbd645266daee2191241e
+  src/meepMoop/SDKConfig.cs:
+    id: d5e10c0b74e1
+    last_write_checksum: sha1:dc42828c78ca5d77a43784ae4543d7afae837ab4
+    pristine_git_object: 82cbc8356c33dc87c0ef59b22fb5774fef9e2c5b
+  src/meepMoop/Store.cs:
+    id: 160cebd7f0f6
+    last_write_checksum: sha1:6e50604af8c6845df28c11d12a81b65cfff8824d
+    pristine_git_object: 1952be5f669632d90049637e7b88b7fbb52ffdba
+  src/meepMoop/User.cs:
+    id: bd2cd7bb07d6
+    last_write_checksum: sha1:97922372f7aafa475a0c182d9c9cc84dbda819f1
+    pristine_git_object: 5c82bd734d9cb493d9acca696e64a3b07944285d
+  src/meepMoop/Utils/AnyDeserializer.cs:
+    id: 01b8f19d3d98
+    last_write_checksum: sha1:2749bd15545f8960b0240800e76fae68cb6c01d6
+    pristine_git_object: 9b6a847fe5880f71d76c383cd75480b8f203aa16
+  src/meepMoop/Utils/BigIntStrConverter.cs:
+    id: a687f7c00789
+    last_write_checksum: sha1:7985ee134ef0e311a7a746513a8a4b1f3d402047
+    pristine_git_object: 9d5364eb11e0cabd522c75289c056a97070779b1
+  src/meepMoop/Utils/Constants.cs:
+    id: 1b5f6f892722
+    last_write_checksum: sha1:c9ff627cfb33ef7980080f7f7f7b8ebff1f64c49
+    pristine_git_object: ae8729a32dd088438958a49742addaf052a66bce
+  src/meepMoop/Utils/DecimalStrConverter.cs:
+    id: bfc94d25efc6
+    last_write_checksum: sha1:ca94cdd27507f5e52299035f650f66164f5200d6
+    pristine_git_object: be9dade2b1cf45db503581fa725abdee65c5f8f8
+  src/meepMoop/Utils/EnumConverter.cs:
+    id: 5753f91ec853
+    last_write_checksum: sha1:2422ed2b12f014d7e80684870e8a864769258b45
+    pristine_git_object: 05bf37281536ed9cf20dac3b38b853f669f3d89b
+  src/meepMoop/Utils/FlexibleObjectDeserializer.cs:
+    id: 47828e76e0b3
+    last_write_checksum: sha1:2b36b9673071c830e9b45b632ff5eef1d8a62e21
+    pristine_git_object: 6e2a7afdfff24d9f64ee2f746e118715ed9d15fb
+  src/meepMoop/Utils/HeaderSerializer.cs:
+    id: fce9094e5071
+    last_write_checksum: sha1:76607875cbb4f37475790922662d85940350ebca
+    pristine_git_object: 0fa771dbbdf5112bdc4d94a6e4448f9b3e2018dc
+  src/meepMoop/Utils/IOpenEnum.cs:
+    id: b081c113c278
+    last_write_checksum: sha1:57bffdf5d9016043a1f2e5a93b088979391d9c2f
+    pristine_git_object: cd034cc0f2c751826f821bfba96313c2ba6331fa
+  src/meepMoop/Utils/IsoDateTimeSerializer.cs:
+    id: 2a1365073fa1
+    last_write_checksum: sha1:ea78725cc9b9b80d5d4866a1c26f73e49b581c31
+    pristine_git_object: 908d56165c89e25021c6d258fc6cdc39bf30ed00
+  src/meepMoop/Utils/OpenEnumConverter.cs:
+    id: 7f2059453ff0
+    last_write_checksum: sha1:0f999a152f7395bfe42167ace37b074dcf37a137
+    pristine_git_object: 343a5deb7a19437bd575ce133f0a84d8b71dd75c
+  src/meepMoop/Utils/PetstoreHttpClient.cs:
+    id: 8f216ef7d871
+    last_write_checksum: sha1:abea24236e1c22308bdeec5f47cb865a6890cb8f
+    pristine_git_object: 12d5fd3d3c4bc2b770c0b7ffedc4516549331f8f
+  src/meepMoop/Utils/RequestBodySerializer.cs:
+    id: eab285598e62
+    last_write_checksum: sha1:94db2d2af3df9c4a7b78ec5b2f8277bdd7452a49
+    pristine_git_object: 588e2b1d5e03a61441a254e4184e3bed1087aa80
+  src/meepMoop/Utils/ResponseBodyDeserializer.cs:
+    id: 1d18e861cfc8
+    last_write_checksum: sha1:44dd8b22ddb8f348ba35ced9b880dd89b296e0cd
+    pristine_git_object: 01025d0ea35694e56b2dc01cdfd62e70ebad0401
+  src/meepMoop/Utils/Retries/BackoffStrategy.cs:
+    id: 894256aabc44
+    last_write_checksum: sha1:63d9dd6c19ed7c4b483d68bb3571dfd0768b9a89
+    pristine_git_object: 69f51335a6d90cd295fb515ec1b108d93fc2da20
+  src/meepMoop/Utils/Retries/Retries.cs:
+    id: 1c36b951ca61
+    last_write_checksum: sha1:600b062bfc730bddc7474c50a5f2af634c54a200
+    pristine_git_object: 5a2f7cac596965113fb9ff530ea7f18cb946a565
+  src/meepMoop/Utils/Retries/RetryConfig.cs:
+    id: f627009e11bb
+    last_write_checksum: sha1:a7c61a0565c4ba92292e73b1a7ca985661d7d28a
+    pristine_git_object: 67bb47a0e83afebc0236a82b6ab9680d9d1bad59
+  src/meepMoop/Utils/SecurityMetadata.cs:
+    id: 50e413ed6590
+    last_write_checksum: sha1:83e704b2fa2bc27793cde6efe592581cc7ae269c
+    pristine_git_object: e9490b3d7d3215164bd29ac0c1dd05334161b363
+  src/meepMoop/Utils/SpeakeasyMetadata.cs:
+    id: cfad0d509bea
+    last_write_checksum: sha1:72a41f3638bdbd50ac266ac26b06ee7669945232
+    pristine_git_object: 14b02c4347b7a7942674434e7f229b6afd2c004c
+  src/meepMoop/Utils/URLBuilder.cs:
+    id: e3093a2ca540
+    last_write_checksum: sha1:c729ff526dcbea75919e6e9ddbb09c80238967b2
+    pristine_git_object: e9e24fb07a895c4d855fc64f9d862b51be3c9259
+  src/meepMoop/Utils/Utilities.cs:
+    id: fb75f97d5a49
+    last_write_checksum: sha1:546cf48863da5de9d06963a1bdcf8964e8998e89
+    pristine_git_object: bb716a12b372dcad457dc8e55a5feb2d76fbafc4
+  src/meepMoop/meepMoop.csproj:
+    id: 72ba91399570
+    last_write_checksum: sha1:7b9ada62cf8077000168ee6d945aae40a04bb405
+    pristine_git_object: 714d07d14333b4b90a47f14b50d0be33df4d2e0a
 examples:
   updatePet:
     speakeasy-default-update-pet:
@@ -335,3 +705,124 @@ examples:
         "404":
           application/json: {"status": 404, "error": "Not Found", "code": "object_not_found"}
 examplesVersion: 1.0.2
+generatedFiles:
+  - .gitattributes
+  - NUGET.md
+  - USAGE.md
+  - docs/Models/Components/ApiResponse.md
+  - docs/Models/Components/Category.md
+  - docs/Models/Components/HTTPMetadata.md
+  - docs/Models/Components/Order.md
+  - docs/Models/Components/OrderStatus.md
+  - docs/Models/Components/Pet.md
+  - docs/Models/Components/PetStatus.md
+  - docs/Models/Components/Security.md
+  - docs/Models/Components/Tag.md
+  - docs/Models/Components/User.md
+  - docs/Models/Errors/ApiErrorInvalidInput.md
+  - docs/Models/Errors/ApiErrorNotFound.md
+  - docs/Models/Errors/ApiErrorUnauthorized.md
+  - docs/Models/Requests/AddPetResponse.md
+  - docs/Models/Requests/CreateUserResponse.md
+  - docs/Models/Requests/CreateUsersWithListInputResponse.md
+  - docs/Models/Requests/DeleteOrderRequest.md
+  - docs/Models/Requests/DeleteOrderResponse.md
+  - docs/Models/Requests/DeletePetRequest.md
+  - docs/Models/Requests/DeletePetResponse.md
+  - docs/Models/Requests/DeleteUserRequest.md
+  - docs/Models/Requests/DeleteUserResponse.md
+  - docs/Models/Requests/FindPetsByStatusRequest.md
+  - docs/Models/Requests/FindPetsByStatusResponse.md
+  - docs/Models/Requests/FindPetsByTagsRequest.md
+  - docs/Models/Requests/FindPetsByTagsResponse.md
+  - docs/Models/Requests/GetInventoryResponse.md
+  - docs/Models/Requests/GetOrderByIdRequest.md
+  - docs/Models/Requests/GetOrderByIdResponse.md
+  - docs/Models/Requests/GetPetByIdRequest.md
+  - docs/Models/Requests/GetPetByIdResponse.md
+  - docs/Models/Requests/GetUserByNameRequest.md
+  - docs/Models/Requests/GetUserByNameResponse.md
+  - docs/Models/Requests/LogoutUserResponse.md
+  - docs/Models/Requests/PlaceOrderResponse.md
+  - docs/Models/Requests/Status.md
+  - docs/Models/Requests/UpdatePetResponse.md
+  - docs/Models/Requests/UpdateUserRequest.md
+  - docs/Models/Requests/UpdateUserResponse.md
+  - docs/Models/Requests/UploadFileRequest.md
+  - docs/Models/Requests/UploadFileResponse.md
+  - docs/sdks/pet/README.md
+  - docs/sdks/petstore/README.md
+  - docs/sdks/store/README.md
+  - docs/sdks/user/README.md
+  - global.json
+  - meepMoop.sln
+  - src/meepMoop/Hooks/HookTypes.cs
+  - src/meepMoop/Hooks/SDKHooks.cs
+  - src/meepMoop/Models/Components/ApiResponse.cs
+  - src/meepMoop/Models/Components/Category.cs
+  - src/meepMoop/Models/Components/HTTPMetadata.cs
+  - src/meepMoop/Models/Components/Order.cs
+  - src/meepMoop/Models/Components/OrderStatus.cs
+  - src/meepMoop/Models/Components/Pet.cs
+  - src/meepMoop/Models/Components/PetStatus.cs
+  - src/meepMoop/Models/Components/Security.cs
+  - src/meepMoop/Models/Components/Tag.cs
+  - src/meepMoop/Models/Components/User.cs
+  - src/meepMoop/Models/Errors/APIException.cs
+  - src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs
+  - src/meepMoop/Models/Errors/ApiErrorNotFound.cs
+  - src/meepMoop/Models/Errors/ApiErrorUnauthorized.cs
+  - src/meepMoop/Models/Errors/PetstoreException.cs
+  - src/meepMoop/Models/Errors/ResponseValidationException.cs
+  - src/meepMoop/Models/Requests/AddPetResponse.cs
+  - src/meepMoop/Models/Requests/CreateUserResponse.cs
+  - src/meepMoop/Models/Requests/CreateUsersWithListInputResponse.cs
+  - src/meepMoop/Models/Requests/DeleteOrderRequest.cs
+  - src/meepMoop/Models/Requests/DeleteOrderResponse.cs
+  - src/meepMoop/Models/Requests/DeletePetRequest.cs
+  - src/meepMoop/Models/Requests/DeletePetResponse.cs
+  - src/meepMoop/Models/Requests/DeleteUserRequest.cs
+  - src/meepMoop/Models/Requests/DeleteUserResponse.cs
+  - src/meepMoop/Models/Requests/FindPetsByStatusRequest.cs
+  - src/meepMoop/Models/Requests/FindPetsByStatusResponse.cs
+  - src/meepMoop/Models/Requests/FindPetsByTagsRequest.cs
+  - src/meepMoop/Models/Requests/FindPetsByTagsResponse.cs
+  - src/meepMoop/Models/Requests/GetInventoryResponse.cs
+  - src/meepMoop/Models/Requests/GetOrderByIdRequest.cs
+  - src/meepMoop/Models/Requests/GetOrderByIdResponse.cs
+  - src/meepMoop/Models/Requests/GetPetByIdRequest.cs
+  - src/meepMoop/Models/Requests/GetPetByIdResponse.cs
+  - src/meepMoop/Models/Requests/GetUserByNameRequest.cs
+  - src/meepMoop/Models/Requests/GetUserByNameResponse.cs
+  - src/meepMoop/Models/Requests/LogoutUserResponse.cs
+  - src/meepMoop/Models/Requests/PlaceOrderResponse.cs
+  - src/meepMoop/Models/Requests/Status.cs
+  - src/meepMoop/Models/Requests/UpdatePetResponse.cs
+  - src/meepMoop/Models/Requests/UpdateUserRequest.cs
+  - src/meepMoop/Models/Requests/UpdateUserResponse.cs
+  - src/meepMoop/Models/Requests/UploadFileRequest.cs
+  - src/meepMoop/Models/Requests/UploadFileResponse.cs
+  - src/meepMoop/Pet.cs
+  - src/meepMoop/Petstore.cs
+  - src/meepMoop/SDKConfig.cs
+  - src/meepMoop/Store.cs
+  - src/meepMoop/User.cs
+  - src/meepMoop/Utils/AnyDeserializer.cs
+  - src/meepMoop/Utils/BigIntStrConverter.cs
+  - src/meepMoop/Utils/DecimalStrConverter.cs
+  - src/meepMoop/Utils/EnumConverter.cs
+  - src/meepMoop/Utils/FlexibleObjectDeserializer.cs
+  - src/meepMoop/Utils/HeaderSerializer.cs
+  - src/meepMoop/Utils/IsoDateTimeSerializer.cs
+  - src/meepMoop/Utils/OpenEnumConverter.cs
+  - src/meepMoop/Utils/PetstoreHttpClient.cs
+  - src/meepMoop/Utils/RequestBodySerializer.cs
+  - src/meepMoop/Utils/ResponseBodyDeserializer.cs
+  - src/meepMoop/Utils/Retries/BackoffStrategy.cs
+  - src/meepMoop/Utils/Retries/Retries.cs
+  - src/meepMoop/Utils/Retries/RetryConfig.cs
+  - src/meepMoop/Utils/SecurityMetadata.cs
+  - src/meepMoop/Utils/SpeakeasyMetadata.cs
+  - src/meepMoop/Utils/URLBuilder.cs
+  - src/meepMoop/Utils/Utilities.cs
+  - src/meepMoop/meepMoop.csproj

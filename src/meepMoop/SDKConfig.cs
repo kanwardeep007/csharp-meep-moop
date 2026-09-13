@@ -17,6 +17,9 @@ namespace meepMoop
     using meepMoop.Utils;
     using meepMoop.Utils.Retries;
 
+    /// <summary>
+    /// Main configuration for the SDK.
+    /// </summary>
     public struct SDKConfig
     {
         /// <summary>
@@ -50,7 +53,7 @@ namespace meepMoop
                     {"environment", "prod"},
                 },
             };
-            UserAgent = "speakeasy-sdk/csharp 0.0.4 2.716.4 1.0.0 meepMoop";
+            UserAgent = "speakeasy-sdk/csharp 0.1.0 2.935.1 1.0.0 meepMoop";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;
