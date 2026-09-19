@@ -10,15 +10,14 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class DeletePetRequest
     {
-
         [SpeakeasyMetadata("header:style=simple,explode=false,name=api_key")]
         public string? ApiKey { get; set; }
 
         /// <summary>
-        /// Pet id to delete
+        /// Pet id to delete.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=petId")]
         public long PetId { get; set; } = default!;
