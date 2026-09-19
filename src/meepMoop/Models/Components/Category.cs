@@ -11,10 +11,9 @@ namespace meepMoop.Models.Components
 {
     using Newtonsoft.Json;
     using meepMoop.Utils;
-    
+
     public class Category
     {
-
         [JsonProperty("id")]
         public long? Id { get; set; }
 

@@ -23,95 +23,169 @@ namespace meepMoop
     using meepMoop.Utils.Retries;
 
     /// <summary>
-    /// Everything about your Pets
-    /// 
-    /// <see>http://swagger.io} - Find out more</see>
+    /// Everything about your Pets<br/>
+    /// <see href="http://swagger.io">Find out more</see>
     /// </summary>
     public interface IPet
     {
-
         /// <summary>
-        /// Update an existing pet
-        /// 
-        /// <remarks>
-        /// Update an existing pet by Id
-        /// </remarks>
+        /// Update an existing pet.
         /// </summary>
-        Task<UpdatePetResponse> UpdatePetAsync(Models.Components.Pet request);
-
-        /// <summary>
-        /// Add a new pet to the store
-        /// 
         /// <remarks>
-        /// Add a new pet to the store
+        /// Update an existing pet by Id.
         /// </remarks>
-        /// </summary>
-        Task<AddPetResponse> AddPetAsync(Models.Components.Pet request);
+        /// <param name="request">Update an existent pet in the store.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdatePetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdatePetResponse> UpdatePetAsync(Models.Components.Pet request);
 
         /// <summary>
-        /// Finds Pets by status
-        /// 
+        /// Add a new pet to the store.
+        /// </summary>
         /// <remarks>
-        /// Multiple status values can be provided with comma separated strings
+        /// Add a new pet to the store.
         /// </remarks>
-        /// </summary>
-        Task<FindPetsByStatusResponse> FindPetsByStatusAsync(Status? status = meepMoop.Models.Requests.Status.Available);
+        /// <param name="request">Create a new pet in the store.</param>
+        /// <returns>An awaitable task that returns a <see cref="AddPetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<AddPetResponse> AddPetAsync(Models.Components.Pet request);
 
         /// <summary>
-        /// Finds Pets by tags
-        /// 
+        /// Finds Pets by status.
+        /// </summary>
+        /// <remarks>
+        /// Multiple status values can be provided with comma separated strings.
+        /// </remarks>
+        /// <param name="status">Status values that need to be considered for filter.</param>
+        /// <returns>An awaitable task that returns a <see cref="FindPetsByStatusResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<FindPetsByStatusResponse> FindPetsByStatusAsync(
+            Status? status = meepMoop.Models.Requests.Status.Available
+        );
+
+        /// <summary>
+        /// Finds Pets by tags.
+        /// </summary>
         /// <remarks>
         /// Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
         /// </remarks>
-        /// </summary>
-        Task<FindPetsByTagsResponse> FindPetsByTagsAsync(List<string>? tags = null);
+        /// <param name="tags">Tags to filter by.</param>
+        /// <returns>An awaitable task that returns a <see cref="FindPetsByTagsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<FindPetsByTagsResponse> FindPetsByTagsAsync(List<string>? tags = null);
 
         /// <summary>
-        /// Find pet by ID
-        /// 
+        /// Find pet by ID.
+        /// </summary>
         /// <remarks>
-        /// Returns a single pet
+        /// Returns a single pet.
         /// </remarks>
-        /// </summary>
-        Task<GetPetByIdResponse> GetPetByIdAsync(long petId);
+        /// <param name="petId">ID of pet to return.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetPetByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetPetByIdResponse> GetPetByIdAsync(long petId);
 
         /// <summary>
-        /// Deletes a pet
+        /// Deletes a pet.
         /// </summary>
-        Task<DeletePetResponse> DeletePetAsync(long petId, string? apiKey = null);
+        /// <param name="petId">Pet id to delete.</param>
+        /// <param name="apiKey">Description not available.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeletePetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeletePetResponse> DeletePetAsync(long petId, string? apiKey = null);
 
         /// <summary>
-        /// uploads an image
+        /// uploads an image.
         /// </summary>
-        Task<UploadFileResponse> UploadFileAsync(long petId, string? additionalMetadata = null, byte[]? requestBody = null);
+        /// <param name="petId">ID of pet to update.</param>
+        /// <param name="additionalMetadata">Additional Metadata.</param>
+        /// <param name="requestBody">Description not available.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadFileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UploadFileResponse> UploadFileAsync(
+            long petId,
+            string? additionalMetadata = null,
+            byte[]? requestBody = null
+        );
     }
 
     /// <summary>
-    /// Everything about your Pets
-    /// 
-    /// <see>http://swagger.io} - Find out more</see>
+    /// Everything about your Pets<br/>
+    /// <see href="http://swagger.io">Find out more</see>
     /// </summary>
     public class Pet: IPet
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.4";
-        private const string _sdkGenVersion = "2.716.4";
-        private const string _openapiDocVersion = "1.0.0";
 
         public Pet(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<UpdatePetResponse> UpdatePetAsync(Models.Components.Pet request)
+        /// <summary>
+        /// Update an existing pet.
+        /// </summary>
+        /// <remarks>
+        /// Update an existing pet by Id.
+        /// </remarks>
+        /// <param name="request">Update an existent pet in the store.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdatePetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdatePetResponse> UpdatePetAsync(Models.Components.Pet request)
         {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            if (request == null) throw new ArgumentNullException(nameof(request));
 
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/pet";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -124,7 +198,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updatePet", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updatePet", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -134,7 +208,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -143,9 +217,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -279,14 +353,33 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<AddPetResponse> AddPetAsync(Models.Components.Pet request)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
+        /// <summary>
+        /// Add a new pet to the store.
+        /// </summary>
+        /// <remarks>
+        /// Add a new pet to the store.
+        /// </remarks>
+        /// <param name="request">Create a new pet in the store.</param>
+        /// <returns>An awaitable task that returns a <see cref="AddPetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<AddPetResponse> AddPetAsync(Models.Components.Pet request)
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/pet";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -299,7 +392,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "addPet", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "addPet", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -309,7 +402,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 405 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -318,9 +411,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -364,7 +457,7 @@ namespace meepMoop
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 405 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -376,24 +469,47 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<FindPetsByStatusResponse> FindPetsByStatusAsync(Status? status = meepMoop.Models.Requests.Status.Available)
+
+        /// <summary>
+        /// Finds Pets by status.
+        /// </summary>
+        /// <remarks>
+        /// Multiple status values can be provided with comma separated strings.
+        /// </remarks>
+        /// <param name="status">Status values that need to be considered for filter.</param>
+        /// <returns>An awaitable task that returns a <see cref="FindPetsByStatusResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<FindPetsByStatusResponse> FindPetsByStatusAsync(
+            Status? status = meepMoop.Models.Requests.Status.Available
+        )
         {
             var request = new FindPetsByStatusRequest()
             {
                 Status = status,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/pet/findByStatus", request);
+            var urlString = URLBuilder.Build(baseUrl, "/pet/findByStatus", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "findPetsByStatus", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "findPetsByStatus", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -403,7 +519,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -412,9 +528,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -548,24 +664,45 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<FindPetsByTagsResponse> FindPetsByTagsAsync(List<string>? tags = null)
+
+        /// <summary>
+        /// Finds Pets by tags.
+        /// </summary>
+        /// <remarks>
+        /// Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+        /// </remarks>
+        /// <param name="tags">Tags to filter by.</param>
+        /// <returns>An awaitable task that returns a <see cref="FindPetsByTagsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<FindPetsByTagsResponse> FindPetsByTagsAsync(List<string>? tags = null)
         {
             var request = new FindPetsByTagsRequest()
             {
                 Tags = tags,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/pet/findByTags", request);
+            var urlString = URLBuilder.Build(baseUrl, "/pet/findByTags", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "findPetsByTags", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "findPetsByTags", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -575,7 +712,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -584,9 +721,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -720,24 +857,45 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetPetByIdResponse> GetPetByIdAsync(long petId)
+
+        /// <summary>
+        /// Find pet by ID.
+        /// </summary>
+        /// <remarks>
+        /// Returns a single pet.
+        /// </remarks>
+        /// <param name="petId">ID of pet to return.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetPetByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetPetByIdResponse> GetPetByIdAsync(long petId)
         {
             var request = new GetPetByIdRequest()
             {
                 PetId = petId,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/pet/{petId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/pet/{petId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getPetById", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getPetById", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -747,7 +905,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -756,9 +914,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -892,26 +1050,45 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeletePetResponse> DeletePetAsync(long petId, string? apiKey = null)
+
+        /// <summary>
+        /// Deletes a pet.
+        /// </summary>
+        /// <param name="petId">Pet id to delete.</param>
+        /// <param name="apiKey">Description not available.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeletePetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeletePetResponse> DeletePetAsync(long petId, string? apiKey = null)
         {
             var request = new DeletePetRequest()
             {
                 PetId = petId,
                 ApiKey = apiKey,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/pet/{petId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/pet/{petId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deletePet", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deletePet", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -921,7 +1098,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -930,9 +1107,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1066,7 +1243,22 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UploadFileResponse> UploadFileAsync(long petId, string? additionalMetadata = null, byte[]? requestBody = null)
+
+        /// <summary>
+        /// uploads an image.
+        /// </summary>
+        /// <param name="petId">ID of pet to update.</param>
+        /// <param name="additionalMetadata">Additional Metadata.</param>
+        /// <param name="requestBody">Description not available.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadFileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UploadFileResponse> UploadFileAsync(
+            long petId,
+            string? additionalMetadata = null,
+            byte[]? requestBody = null
+        )
         {
             var request = new UploadFileRequest()
             {
@@ -1074,11 +1266,17 @@ namespace meepMoop
                 AdditionalMetadata = additionalMetadata,
                 RequestBody = requestBody,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/pet/{petId}/uploadImage", request);
+            var urlString = URLBuilder.Build(baseUrl, "/pet/{petId}/uploadImage", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "raw", false, true);
             if (serializedBody != null)
@@ -1091,7 +1289,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "uploadFile", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "uploadFile", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -1110,9 +1308,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1167,5 +1365,6 @@ namespace meepMoop
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }
