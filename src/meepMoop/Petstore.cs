@@ -20,7 +20,6 @@ namespace meepMoop
     using meepMoop.Utils;
     using meepMoop.Utils.Retries;
 
-
     /// <summary>
     /// The environment name. Defaults to the production environment.
     /// </summary>
@@ -69,66 +68,65 @@ namespace meepMoop
 
     /// <summary>
     /// Petstore - OpenAPI 3.1: This is a sample Pet Store Server based on the OpenAPI 3.1 specification.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Some useful links:<br/>
-    /// - <a href="https://www.speakeasy.com/openapi">OpenAPI Reference</a><br/>
-    /// - <a href="https://github.com/swagger-api/swagger-petstore">The Pet Store repository</a><br/>
+    /// - <a href="https://www.speakeasy.com/openapi">OpenAPI Reference</a>
+    /// - <a href="https://github.com/swagger-api/swagger-petstore">The Pet Store repository</a>
     /// - <a href="https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml">The source API definition for the Pet Store</a>
-    /// </remarks>
-    /// 
-    /// <see>http://swagger.io} - Find out more about Swagger</see>
+    /// <see href="http://swagger.io">Find out more about Swagger</see>
     /// </summary>
     public interface IPetstore
     {
-
         /// <summary>
-        /// Everything about your Pets
-        /// 
-        /// <see>http://swagger.io} - Find out more</see>
+        /// Everything about your Pets<br/>
+        /// <see href="http://swagger.io">Find out more</see>
         /// </summary>
         public IPet Pet { get; }
 
         /// <summary>
-        /// Access to Petstore orders
-        /// 
-        /// <see>http://swagger.io} - Find out more about our store</see>
+        /// Access to Petstore orders<br/>
+        /// <see href="http://swagger.io">Find out more about our store</see>
         /// </summary>
         public IStore Store { get; }
 
         /// <summary>
-        /// Operations about user
+        /// Operations about user.
         /// </summary>
         public IUser User { get; }
     }
 
-
     /// <summary>
     /// Petstore - OpenAPI 3.1: This is a sample Pet Store Server based on the OpenAPI 3.1 specification.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Some useful links:<br/>
-    /// - <a href="https://www.speakeasy.com/openapi">OpenAPI Reference</a><br/>
-    /// - <a href="https://github.com/swagger-api/swagger-petstore">The Pet Store repository</a><br/>
+    /// - <a href="https://www.speakeasy.com/openapi">OpenAPI Reference</a>
+    /// - <a href="https://github.com/swagger-api/swagger-petstore">The Pet Store repository</a>
     /// - <a href="https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml">The source API definition for the Pet Store</a>
-    /// </remarks>
-    /// 
-    /// <see>http://swagger.io} - Find out more about Swagger</see>
+    /// <see href="http://swagger.io">Find out more about Swagger</see>
     /// </summary>
     public class Petstore: IPetstore
     {
+        /// <summary>
+        /// The main SDK Configuration.
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.4";
-        private const string _sdkGenVersion = "2.716.4";
-        private const string _openapiDocVersion = "1.0.0";
+        /// <summary>
+        /// The Pet sub-SDK.
+        /// </summary>
         public IPet Pet { get; private set; }
+        /// <summary>
+        /// The Store sub-SDK.
+        /// </summary>
         public IStore Store { get; private set; }
+        /// <summary>
+        /// The User sub-SDK.
+        /// </summary>
         public IUser User { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the SDK based on a <see cref="SDKConfig"/> configuration object.
+        /// </summary>
+        /// <param name="config">The SDK configuration object.</param>
         public Petstore(SDKConfig config)
         {
             SDKConfiguration = config;
@@ -141,13 +139,35 @@ namespace meepMoop
             User = new User(SDKConfiguration);
         }
 
-        public Petstore(string? apiKey = null, Func<string>? apiKeySource = null, int? serverIndex = null, ServerEnvironment? environment = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, IPetstoreHttpClient? client = null, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Initializes a new instance of the SDK with optional configuration parameters.
+        /// </summary>
+        /// <param name="apiKey">The security configuration to use for API requests. If provided, this will be used as a static security configuration.</param>
+        /// <param name="apiKeySource">A function that returns the security configuration dynamically. This takes precedence over the static security parameter if both are provided.</param>
+        /// <param name="serverIndex">The index of the server to use from the predefined server list. Must be between 0 and the length of the server list. Defaults to 0 if not specified.</param>
+        /// <param name="environment">A per-environment API.</param>
+        /// <param name="serverUrl">A custom server URL to use instead of the predefined server list. If provided with urlParams, the URL will be templated with the provided parameters.</param>
+        /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
+        /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default PetstoreHttpClient will be used.</param>
+        /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid value provided for <paramref name="serverIndex"/>: must be between 0 (inclusive) and 1 (exclusive).</exception>
+        /// <exception cref="ArgumentException">None of <paramref name="apiKey"/> and <paramref name="apiKeySource"/> were provided.</exception>
+        public Petstore(
+            string? apiKey = null,
+            Func<string>? apiKeySource = null,
+            int? serverIndex = null,
+            ServerEnvironment? environment = null,
+            string? serverUrl = null,
+            Dictionary<string, string>? urlParams = null,
+            IPetstoreHttpClient? client = null,
+            RetryConfig? retryConfig = null
+        )
         {
             if (serverIndex != null)
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
             }
 
@@ -170,7 +190,7 @@ namespace meepMoop
             }
             else
             {
-                throw new Exception("apiKey and apiKeySource cannot both be null");
+                throw new ArgumentException("apiKey and apiKeySource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig(client)
@@ -200,28 +220,40 @@ namespace meepMoop
             SDKConfiguration = SDKConfiguration.Hooks.SDKInit(SDKConfiguration);
         }
 
+        /// <summary>
+        /// Builder class for constructing an instance of the SDK.
+        /// </summary>
         public class SDKBuilder
         {
             private SDKConfig _sdkConfig = new SDKConfig(client: new PetstoreHttpClient());
 
             public SDKBuilder() { }
 
+            /// <summary>
+            /// Overrides the default server by index.
+            /// </summary>
             public SDKBuilder WithServerIndex(int serverIndex)
             {
                 if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
                 _sdkConfig.ServerIndex = serverIndex;
                 return this;
             }
 
+            /// <summary>
+            /// Sets the environment server variable for the templated server URL.
+            /// </summary>
             public SDKBuilder WithEnvironment(ServerEnvironment environment)
             {
                 _sdkConfig.SetServerVariable("environment", ServerEnvironmentExtension.Value(environment));
                 return this;
             }
 
+            /// <summary>
+            /// Overrides the default server URL for the SDK.
+            /// </summary>
             public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
             {
                 if (serverVariables != null)
@@ -232,34 +264,49 @@ namespace meepMoop
                 return this;
             }
 
+            /// <summary>
+            /// Sets the apiKeySource security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithApiKeySource(Func<string> apiKeySource)
             {
                 _sdkConfig.SecuritySource = () => new meepMoop.Models.Components.Security() { ApiKey = apiKeySource() };
                 return this;
             }
 
+            /// <summary>
+            /// Sets the apiKey security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithApiKey(string apiKey)
             {
                 _sdkConfig.SecuritySource = () => new meepMoop.Models.Components.Security() { ApiKey = apiKey };
                 return this;
             }
 
+            /// <summary>
+            /// Sets a custom HTTP client to be used by the SDK.
+            /// </summary>
             public SDKBuilder WithClient(IPetstoreHttpClient client)
             {
                 _sdkConfig.Client = client;
                 return this;
             }
 
+            /// <summary>
+            /// Sets the retry configuration for the SDK.
+            /// </summary>
             public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
             {
                 _sdkConfig.RetryConfig = retryConfig;
                 return this;
             }
 
+            /// <summary>
+            /// Builds and returns the SDK instance.
+            /// </summary>
             public Petstore Build()
             {
               if (_sdkConfig.SecuritySource == null) {
-                  throw new Exception("securitySource cannot be null. One of `ApiKey` or `apiKeySource` needs to be defined.");
+                  throw new ArgumentException("securitySource cannot be null. One of `ApiKey` or `apiKeySource` needs to be defined.");
               }
               return new Petstore(_sdkConfig);
             }

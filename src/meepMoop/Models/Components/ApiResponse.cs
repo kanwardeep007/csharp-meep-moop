@@ -11,10 +11,9 @@ namespace meepMoop.Models.Components
 {
     using Newtonsoft.Json;
     using meepMoop.Utils;
-    
+
     public class ApiResponse
     {
-
         [JsonProperty("code")]
         public int? Code { get; set; }
 
