@@ -10,12 +10,11 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class GetUserByNameRequest
     {
-
         /// <summary>
-        /// The name that needs to be fetched. Use user1 for testing. 
+        /// The name that needs to be fetched. Use user1 for testing.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=username")]
         public string Username { get; set; } = default!;

@@ -11,18 +11,17 @@ namespace meepMoop.Models.Requests
 {
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class UpdateUserRequest
     {
-
         /// <summary>
-        /// name that needs to be updated
+        /// name that needs to be updated.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=username")]
         public string Username { get; set; } = default!;
 
         /// <summary>
-        /// Update an existent user in the store
+        /// Update an existent user in the store.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Models.Components.User? User { get; set; }
