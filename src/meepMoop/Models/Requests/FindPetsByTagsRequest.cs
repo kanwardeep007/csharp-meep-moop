@@ -11,12 +11,11 @@ namespace meepMoop.Models.Requests
 {
     using System.Collections.Generic;
     using meepMoop.Utils;
-    
+
     public class FindPetsByTagsRequest
     {
-
         /// <summary>
-        /// Tags to filter by
+        /// Tags to filter by.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=tags")]
         public List<string>? Tags { get; set; }

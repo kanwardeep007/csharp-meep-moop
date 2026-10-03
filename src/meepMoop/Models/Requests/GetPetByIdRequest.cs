@@ -10,12 +10,11 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class GetPetByIdRequest
     {
-
         /// <summary>
-        /// ID of pet to return
+        /// ID of pet to return.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=petId")]
         public long PetId { get; set; } = default!;
