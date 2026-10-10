@@ -13,18 +13,25 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
     sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
     hoistGlobalSecurity: true
   inferSSEOverload: true
   sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits: {}
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 0.0.4
+  version: 0.1.0
   additionalDependencies: []
   author: Speakeasy
   baseErrorName: PetstoreException
@@ -32,9 +39,13 @@ csharp:
   defaultErrorName: APIException
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net6.0
+  enableCancellationToken: false
+  enableFormatting: false
   enableSourceLink: false
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: false
   httpClientPrefix: ""
   imports:
     option: openapi
@@ -45,12 +56,19 @@ csharp:
       shared: Models/Components
       webhooks: Models/Webhooks
   includeDebugSymbols: false
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: infer-optional-args
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: meepMoop
   packageTags: ""
+  presenceAwareJsonSerialization: false
+  respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope-http
+  schemaValidation: strict
   sourceDirectory: src
+  targetFramework: dotnetVersion
+  unionStrategy: left-to-right
   useNodatime: false
