@@ -146,7 +146,7 @@ catch (System.Net.Http.HttpRequestException ex)
 **Primary exception:**
 * [`PetstoreException`](./src/meepMoop/Models/Errors/PetstoreException.cs): The base class for HTTP error responses.
 
-<details><summary>Less common exceptions (5)</summary>
+**Less common exceptions (5)**
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
@@ -155,7 +155,6 @@ catch (System.Net.Http.HttpRequestException ex)
   * [`ApiErrorNotFound`](./src/meepMoop/Models/Errors/ApiErrorNotFound.cs): Not Found error. Status code `404`. Applicable to 11 of 17 methods.*
   * [`ApiErrorInvalidInput`](./src/meepMoop/Models/Errors/ApiErrorInvalidInput.cs): Not Found error. Status code `400`. Applicable to 9 of 17 methods.*
   * [`ResponseValidationError`](./src/meepMoop/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
-</details>
 
 \* Refer to the [relevant documentation](#available-resources-and-operations) to determine whether an exception applies to a specific operation.
 <!-- End Error Handling [errors] -->
@@ -179,6 +178,7 @@ using meepMoop;
 using meepMoop.Models.Components;
 
 var sdk = new Petstore(
+    serverIndex: 0,
     environment: "dev",
     apiKey: "<YOUR_API_KEY_HERE>"
 );
@@ -230,5 +230,147 @@ var res = await sdk.Pet.UpdatePetAsync(req);
 // handle response
 ```
 <!-- End Server Selection [server] -->
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The C# SDK makes API calls using an `ISpeakeasyHttpClient` that wraps the native
+[HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient). This
+client provides the ability to attach hooks around the request lifecycle that can be used to modify the request or handle
+errors and response.
+
+The `ISpeakeasyHttpClient` interface allows you to either use the default `SpeakeasyHttpClient` that comes with the SDK,
+or provide your own custom implementation with customized configuration such as custom message handlers, timeouts,
+connection pooling, and other HTTP client settings.
+
+The following example shows how to create a custom HTTP client with request modification and error handling:
+
+```csharp
+using meepMoop;
+using meepMoop.Utils;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+
+// Create a custom HTTP client
+public class CustomHttpClient : ISpeakeasyHttpClient
+{
+    private readonly ISpeakeasyHttpClient _defaultClient;
+
+    public CustomHttpClient()
+    {
+        _defaultClient = new SpeakeasyHttpClient();
+    }
+
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    {
+        // Add custom header and timeout
+        request.Headers.Add("x-custom-header", "custom value");
+        request.Headers.Add("x-request-timeout", "30");
+        
+        try
+        {
+            var response = await _defaultClient.SendAsync(request, cancellationToken);
+            // Log successful response
+            Console.WriteLine($"Request successful: {response.StatusCode}");
+            return response;
+        }
+        catch (Exception error)
+        {
+            // Log error
+            Console.WriteLine($"Request failed: {error.Message}");
+            throw;
+        }
+    }
+
+    public void Dispose()
+    {
+        _httpClient?.Dispose();
+        _defaultClient?.Dispose();
+    }
+}
+
+// Use the custom HTTP client with the SDK
+var customHttpClient = new CustomHttpClient();
+var sdk = new Petstore(client: customHttpClient);
+```
+
+**You can also provide a completely custom HTTP client with your own configuration:**
+
+```csharp
+using meepMoop.Utils;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+
+// Custom HTTP client with custom configuration
+public class AdvancedHttpClient : ISpeakeasyHttpClient
+{
+    private readonly HttpClient _httpClient;
+
+    public AdvancedHttpClient()
+    {
+        var handler = new HttpClientHandler()
+        {
+            MaxConnectionsPerServer = 10,
+            // ServerCertificateCustomValidationCallback = customCertValidation, // Custom SSL validation if needed
+        };
+
+        _httpClient = new HttpClient(handler)
+        {
+            Timeout = TimeSpan.FromSeconds(30)
+        };
+    }
+
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    {
+        return await _httpClient.SendAsync(request, cancellationToken ?? CancellationToken.None);
+    }
+
+    public void Dispose()
+    {
+        _httpClient?.Dispose();
+    }
+}
+
+var sdk = Petstore.Builder()
+    .WithClient(new AdvancedHttpClient())
+    .Build();
+```
+
+**For simple debugging, you can enable request/response logging by implementing a custom client:**
+
+```csharp
+public class LoggingHttpClient : ISpeakeasyHttpClient
+{
+    private readonly ISpeakeasyHttpClient _innerClient;
+
+    public LoggingHttpClient(ISpeakeasyHttpClient innerClient = null)
+    {
+        _innerClient = innerClient ?? new SpeakeasyHttpClient();
+    }
+
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    {
+        // Log request
+        Console.WriteLine($"Sending {request.Method} request to {request.RequestUri}");
+        
+        var response = await _innerClient.SendAsync(request, cancellationToken);
+        
+        // Log response
+        Console.WriteLine($"Received {response.StatusCode} response");
+        
+        return response;
+    }
+
+    public void Dispose() => _innerClient?.Dispose();
+}
+
+var sdk = new Petstore(client: new LoggingHttpClient());
+```
+
+The SDK also provides built-in hook support through the `SDKConfiguration.Hooks` system, which automatically handles
+`BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.
+<!-- End Custom HTTP Client [http-client] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

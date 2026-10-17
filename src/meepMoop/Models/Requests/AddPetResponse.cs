@@ -12,15 +12,14 @@ namespace meepMoop.Models.Requests
     using Newtonsoft.Json;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class AddPetResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successful operation
+        /// Successful operation.
         /// </summary>
         public Models.Components.Pet? Pet { get; set; }
     }
