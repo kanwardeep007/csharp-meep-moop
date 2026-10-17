@@ -13,18 +13,17 @@ namespace meepMoop.Models.Components
     using System;
     using System.Net.Http;
     using meepMoop.Utils;
-    
+
     public class HTTPMetadata
     {
-
         /// <summary>
-        /// Raw HTTP response; suitable for custom response parsing
+        /// Raw HTTP response; suitable for custom response parsing.
         /// </summary>
         [JsonProperty("-")]
         public HttpResponseMessage Response { get; set; } = default!;
 
         /// <summary>
-        /// Raw HTTP request; suitable for debugging
+        /// Raw HTTP request; suitable for debugging.
         /// </summary>
         [JsonProperty("-")]
         public HttpRequestMessage Request { get; set; } = default!;
