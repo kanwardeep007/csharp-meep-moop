@@ -12,9 +12,9 @@ namespace meepMoop.Models.Components
     using Newtonsoft.Json;
     using System;
     using meepMoop.Utils;
-    
+
     /// <summary>
-    /// pet status in the store
+    /// pet status in the store.
     /// </summary>
     public enum PetStatus
     {
@@ -58,5 +58,4 @@ namespace meepMoop.Models.Components
             throw new Exception($"Unknown value {value} for enum PetStatus");
         }
     }
-
 }

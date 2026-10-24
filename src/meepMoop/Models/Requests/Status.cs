@@ -12,9 +12,9 @@ namespace meepMoop.Models.Requests
     using Newtonsoft.Json;
     using System;
     using meepMoop.Utils;
-    
+
     /// <summary>
-    /// Status values that need to be considered for filter
+    /// Status values that need to be considered for filter.
     /// </summary>
     public enum Status
     {
@@ -58,5 +58,4 @@ namespace meepMoop.Models.Requests
             throw new Exception($"Unknown value {value} for enum Status");
         }
     }
-
 }

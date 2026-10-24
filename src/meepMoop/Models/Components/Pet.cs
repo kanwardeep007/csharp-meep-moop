@@ -13,10 +13,9 @@ namespace meepMoop.Models.Components
     using System.Collections.Generic;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class Pet
     {
-
         [JsonProperty("id")]
         public long? Id { get; set; }
 
@@ -33,7 +32,7 @@ namespace meepMoop.Models.Components
         public List<Tag>? Tags { get; set; }
 
         /// <summary>
-        /// pet status in the store
+        /// pet status in the store.
         /// </summary>
         [JsonProperty("status")]
         public PetStatus? Status { get; set; }
