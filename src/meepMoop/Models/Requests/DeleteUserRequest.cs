@@ -10,12 +10,11 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class DeleteUserRequest
     {
-
         /// <summary>
-        /// The name that needs to be deleted
+        /// The name that needs to be deleted.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=username")]
         public string Username { get; set; } = default!;
