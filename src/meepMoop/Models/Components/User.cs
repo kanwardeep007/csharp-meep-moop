@@ -11,10 +11,9 @@ namespace meepMoop.Models.Components
 {
     using Newtonsoft.Json;
     using meepMoop.Utils;
-    
+
     public class User
     {
-
         [JsonProperty("id")]
         public long? Id { get; set; }
 
@@ -37,7 +36,7 @@ namespace meepMoop.Models.Components
         public string? Phone { get; set; }
 
         /// <summary>
-        /// User Status
+        /// User Status.
         /// </summary>
         [JsonProperty("userStatus")]
         public int? UserStatus { get; set; }

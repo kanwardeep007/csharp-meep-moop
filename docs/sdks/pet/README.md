@@ -1,5 +1,4 @@
 # Pet
-(*Pet*)
 
 ## Overview
 

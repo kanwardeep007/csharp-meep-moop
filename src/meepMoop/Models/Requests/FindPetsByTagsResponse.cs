@@ -13,15 +13,14 @@ namespace meepMoop.Models.Requests
     using System.Collections.Generic;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class FindPetsByTagsResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// successful operation
+        /// successful operation.
         /// </summary>
         public List<Models.Components.Pet>? Pets { get; set; }
     }

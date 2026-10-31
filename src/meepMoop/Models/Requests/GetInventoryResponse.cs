@@ -13,15 +13,14 @@ namespace meepMoop.Models.Requests
     using System.Collections.Generic;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class GetInventoryResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// successful operation
+        /// successful operation.
         /// </summary>
         public Dictionary<string, int>? Object { get; set; }
     }
