@@ -13,10 +13,9 @@ namespace meepMoop.Models.Components
     using System;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class Order
     {
-
         [JsonProperty("id")]
         public long? Id { get; set; }
 
@@ -30,7 +29,7 @@ namespace meepMoop.Models.Components
         public DateTime? ShipDate { get; set; }
 
         /// <summary>
-        /// Order Status
+        /// Order Status.
         /// </summary>
         [JsonProperty("status")]
         public OrderStatus? Status { get; set; }
