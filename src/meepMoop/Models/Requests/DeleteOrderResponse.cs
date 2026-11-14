@@ -12,15 +12,14 @@ namespace meepMoop.Models.Requests
     using Newtonsoft.Json;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class DeleteOrderResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Order deleted
+        /// Order deleted.
         /// </summary>
         public Order? Order { get; set; }
     }

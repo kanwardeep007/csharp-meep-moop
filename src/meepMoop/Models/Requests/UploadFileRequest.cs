@@ -10,18 +10,17 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class UploadFileRequest
     {
-
         /// <summary>
-        /// ID of pet to update
+        /// ID of pet to update.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=petId")]
         public long PetId { get; set; } = default!;
 
         /// <summary>
-        /// Additional Metadata
+        /// Additional Metadata.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=additionalMetadata")]
         public string? AdditionalMetadata { get; set; }
