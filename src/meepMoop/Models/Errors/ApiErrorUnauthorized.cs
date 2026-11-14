@@ -28,7 +28,7 @@ namespace meepMoop.Models.Errors
     }
 
     /// <summary>
-    /// Unauthorized error
+    /// Unauthorized error.
     /// </summary>
     public class ApiErrorUnauthorized : PetstoreException
     {
@@ -62,5 +62,4 @@ namespace meepMoop.Models.Errors
            #pragma warning restore CS0618
         }
     }
-
 }
