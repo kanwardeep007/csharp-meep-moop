@@ -12,15 +12,14 @@ namespace meepMoop.Models.Requests
     using Newtonsoft.Json;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class DeleteUserResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// User deleted
+        /// User deleted.
         /// </summary>
         public Models.Components.User? User { get; set; }
     }

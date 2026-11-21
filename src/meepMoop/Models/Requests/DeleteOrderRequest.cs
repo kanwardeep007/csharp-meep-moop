@@ -10,12 +10,11 @@
 namespace meepMoop.Models.Requests
 {
     using meepMoop.Utils;
-    
+
     public class DeleteOrderRequest
     {
-
         /// <summary>
-        /// ID of the order that needs to be deleted
+        /// ID of the order that needs to be deleted.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=orderId")]
         public long OrderId { get; set; } = default!;
