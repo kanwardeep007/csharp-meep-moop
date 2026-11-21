@@ -12,15 +12,14 @@ namespace meepMoop.Models.Requests
     using Newtonsoft.Json;
     using meepMoop.Models.Components;
     using meepMoop.Utils;
-    
+
     public class UploadFileResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// successful operation
+        /// successful operation.
         /// </summary>
         public ApiResponse? ApiResponse { get; set; }
     }
