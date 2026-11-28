@@ -31,7 +31,7 @@ namespace meepMoop.Models.Errors
     }
 
     /// <summary>
-    /// Not Found error
+    /// Not Found error.
     /// </summary>
     public class ApiErrorNotFound : PetstoreException
     {
@@ -69,5 +69,4 @@ namespace meepMoop.Models.Errors
            #pragma warning restore CS0618
         }
     }
-
 }

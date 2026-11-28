@@ -23,82 +23,131 @@ namespace meepMoop
     using meepMoop.Utils.Retries;
 
     /// <summary>
-    /// Operations about user
+    /// Operations about user.
     /// </summary>
     public interface IUser
     {
-
         /// <summary>
-        /// Create user
-        /// 
+        /// Create user.
+        /// </summary>
         /// <remarks>
         /// This can only be done by the logged in user.
         /// </remarks>
-        /// </summary>
-        Task<CreateUserResponse> CreateUserAsync(Models.Components.User? request = null);
+        /// <param name="request">Created user object.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateUserResponse> CreateUserAsync(Models.Components.User? request = null);
 
         /// <summary>
-        /// Creates list of users with given input array
-        /// 
+        /// Creates list of users with given input array.
+        /// </summary>
         /// <remarks>
-        /// Creates list of users with given input array
+        /// Creates list of users with given input array.
         /// </remarks>
-        /// </summary>
-        Task<CreateUsersWithListInputResponse> CreateUsersWithListInputAsync(List<Models.Components.User>? request = null);
+        /// <param name="request">Description not available.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateUsersWithListInputResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateUsersWithListInputResponse> CreateUsersWithListInputAsync(
+            List<Models.Components.User>? request = null
+        );
 
         /// <summary>
-        /// Logs out current logged in user session
+        /// Logs out current logged in user session.
         /// </summary>
-        Task<LogoutUserResponse> LogoutUserAsync();
+        /// <returns>An awaitable task that returns a <see cref="LogoutUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<LogoutUserResponse> LogoutUserAsync();
 
         /// <summary>
-        /// Get user by user name
+        /// Get user by user name.
         /// </summary>
-        Task<GetUserByNameResponse> GetUserByNameAsync(string username);
+        /// <param name="username">The name that needs to be fetched. Use user1 for testing.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetUserByNameResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="username"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetUserByNameResponse> GetUserByNameAsync(string username);
 
         /// <summary>
-        /// Update user
-        /// 
+        /// Update user.
+        /// </summary>
         /// <remarks>
         /// This can only be done by the logged in user.
         /// </remarks>
-        /// </summary>
-        Task<UpdateUserResponse> UpdateUserAsync(string username, Models.Components.User? user = null);
+        /// <param name="username">name that needs to be updated.</param>
+        /// <param name="user">Update an existent user in the store.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="username"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateUserResponse> UpdateUserAsync(string username, Models.Components.User? user = null);
 
         /// <summary>
-        /// Delete user
-        /// 
+        /// Delete user.
+        /// </summary>
         /// <remarks>
         /// This can only be done by the logged in user.
         /// </remarks>
-        /// </summary>
-        Task<DeleteUserResponse> DeleteUserAsync(string username);
+        /// <param name="username">The name that needs to be deleted.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="username"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteUserResponse> DeleteUserAsync(string username);
     }
 
     /// <summary>
-    /// Operations about user
+    /// Operations about user.
     /// </summary>
     public class User: IUser
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.4";
-        private const string _sdkGenVersion = "2.716.4";
-        private const string _openapiDocVersion = "1.0.0";
 
         public User(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<CreateUserResponse> CreateUserAsync(Models.Components.User? request = null)
+        /// <summary>
+        /// Create user.
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="request">Created user object.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateUserResponse> CreateUserAsync(Models.Components.User? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/user";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
             if (serializedBody != null)
@@ -111,7 +160,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createUser", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createUser", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -130,9 +179,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -188,14 +237,32 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateUsersWithListInputResponse> CreateUsersWithListInputAsync(List<Models.Components.User>? request = null)
+
+        /// <summary>
+        /// Creates list of users with given input array.
+        /// </summary>
+        /// <remarks>
+        /// Creates list of users with given input array.
+        /// </remarks>
+        /// <param name="request">Description not available.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateUsersWithListInputResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateUsersWithListInputResponse> CreateUsersWithListInputAsync(
+            List<Models.Components.User>? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/user/createWithList";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
             if (serializedBody != null)
@@ -208,7 +275,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createUsersWithListInput", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createUsersWithListInput", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -227,9 +294,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -285,21 +352,32 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<LogoutUserResponse> LogoutUserAsync()
+
+        /// <summary>
+        /// Logs out current logged in user session.
+        /// </summary>
+        /// <returns>An awaitable task that returns a <see cref="LogoutUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<LogoutUserResponse> LogoutUserAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/user/logout";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "*/*");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "logoutUser", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "logoutUser", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -318,9 +396,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -358,24 +436,45 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetUserByNameResponse> GetUserByNameAsync(string username)
+
+        /// <summary>
+        /// Get user by user name.
+        /// </summary>
+        /// <param name="username">The name that needs to be fetched. Use user1 for testing.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetUserByNameResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="username"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetUserByNameResponse> GetUserByNameAsync(string username)
         {
+            if (username == null) throw new ArgumentNullException(nameof(username));
+
             var request = new GetUserByNameRequest()
             {
                 Username = username,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/user/{username}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/user/{username}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getUserByName", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getUserByName", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -385,7 +484,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -394,9 +493,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -530,18 +629,39 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateUserResponse> UpdateUserAsync(string username, Models.Components.User? user = null)
+
+        /// <summary>
+        /// Update user.
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="username">name that needs to be updated.</param>
+        /// <param name="user">Update an existent user in the store.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="username"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateUserResponse> UpdateUserAsync(string username, Models.Components.User? user = null)
         {
+            if (username == null) throw new ArgumentNullException(nameof(username));
+
             var request = new UpdateUserRequest()
             {
                 Username = username,
                 User = user,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/user/{username}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/user/{username}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "*/*");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "User", "json", false, true);
             if (serializedBody != null)
@@ -554,7 +674,7 @@ namespace meepMoop
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateUser", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateUser", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -573,9 +693,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -613,24 +733,48 @@ namespace meepMoop
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteUserResponse> DeleteUserAsync(string username)
+
+        /// <summary>
+        /// Delete user.
+        /// </summary>
+        /// <remarks>
+        /// This can only be done by the logged in user.
+        /// </remarks>
+        /// <param name="username">The name that needs to be deleted.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteUserResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="username"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ApiErrorInvalidInput">Not Found error. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="ApiErrorUnauthorized">Unauthorized error. Thrown when the API returns a 401 response.</exception>
+        /// <exception cref="ApiErrorNotFound">Not Found error. Thrown when the API returns a 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteUserResponse> DeleteUserAsync(string username)
         {
+            if (username == null) throw new ArgumentNullException(nameof(username));
+
             var request = new DeleteUserRequest()
             {
                 Username = username,
             };
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/user/{username}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/user/{username}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteUser", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteUser", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -640,7 +784,7 @@ namespace meepMoop
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 404 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -649,9 +793,9 @@ namespace meepMoop
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -784,5 +928,6 @@ namespace meepMoop
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }
